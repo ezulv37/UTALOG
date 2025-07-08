@@ -1,0 +1,26 @@
+<section class="account_container">
+  <%# <%= render "shared/account_setting" %>
+  <div class="accountInformation">
+    <div class="accountInformation_header">
+      <h3 class="accountInformation_header_title">プロフィール</h3>
+      <%= link_to '編集', edit_user_profile_path, class: 'account_edit_btn' %>
+    </div>
+
+    <table>
+      <tr>
+        <th>アイコン画像</th>
+        <td>
+          <% if @user.image.attached? %>
+            <%= image_tag @user.image, size: "80x80" %>
+          <% else %>
+            <%= image_tag 'default_icon.png', size: "80x80" %>
+          <% end %>
+        </td>
+      </tr>
+      <tr>
+        <th>名前</th>
+        <td><%= @user.name %></td>
+      </tr>
+    </table>
+  </div>
+</section>
