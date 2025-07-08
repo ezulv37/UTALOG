@@ -1,0 +1,19 @@
+<section class="account_container">
+  <%# <%= render "shared/account_setting" %>
+  <div class="accountInformation">
+    <div class="accountInformation_header">
+      <h3 class="accountInformation_header_title">アカウント</h3>
+      <%= link_to '編集', edit_user_registration_path, class: 'account_edit_btn' %>
+    </div>
+    <table>
+      <tr>
+        <th>メールアドレス</th>
+        <td><%= @user.email %></td>
+      </tr>
+      <tr>
+        <th>パスワード</th>
+        <td>*********</td>
+      </tr>
+    </table>
+  </div>
+</section>
