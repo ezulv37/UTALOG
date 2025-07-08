@@ -1,0 +1,32 @@
+<h2>Sign up</h2>
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+
+  <div class="field">
+    <p><%= f.label :name, "ユーザー名" %></p>
+    <%= f.text_field :name, autofocus: true, class:"signupin_inputForm" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :email, "メールアドレス" %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password, "パスワード" %>
+    <% if @minimum_password_length %>
+    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <% end %><br />
+    <%= f.password_field :password, autocomplete: "new-password" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password_confirmation, "確認用パスワード" %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "新しいアカウントを作成" %>
+    <%= link_to 'アカウントをお持ちの方はログイン', new_user_session_path, class:'signupin_btnB btnB' %>
+  </div>
+<% end %>
