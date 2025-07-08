@@ -40,7 +40,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   protected
   def after_sign_up_path_for(resource)
-    profiles_show_path
+    user_profile_path
   end
 
   # If you have extra params to permit, append them to the sanitizer.
