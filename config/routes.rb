@@ -12,4 +12,5 @@ Rails.application.routes.draw do
   # プロフィール関連
   get 'users/profile', to: 'profiles#show', as: 'user_profile'
   get 'users/profile/edit', to: 'profiles#edit', as: 'edit_user_profile'
+  patch 'users/profile', to: 'profiles#update'
 end
