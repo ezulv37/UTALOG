@@ -1,0 +1,43 @@
+<%= render "shared/error", obj: song %>
+
+<%= form_with model: song, local: true do |f| %>
+  <div class="room_new_edit_field">
+    <p class="room_new_edit_item"><%= f.label :title ,"曲名" %></p>
+    <%= f.text_field :title, class:"room_new_edit_inputForm" %>
+  </div>
+  <div class="room_new_edit_field">
+    <p class="room_new_edit_item"><%= f.label :artist ,"アーティスト" %></p>
+    <%= f.text_field :artist, class:"room_new_edit_inputForm roomNewEdit_introduction" %>
+  </div>
+  <div class="room_new_edit_field">
+    <p class="room_new_edit_item"><%= f.label :genre, "ジャンル" %></p>
+    <% genres = [
+      "J-POP",
+      "ロック",
+      "バラード",
+      "アニメ・ボカロ",
+      "K-POP/洋楽",
+      "アイドルソング",
+      "ヒップホップ/R&B",
+      "演歌・歌謡曲"
+    ] %>
+    <% genres.each do |genre| %>
+      <div class="radio-item">
+        <%= f.radio_button :genre, genre, id: "song_genre_#{genre.parameterize}" %>
+        <%= label_tag "song_genre_#{genre.parameterize}", genre %>
+      </div>
+    <% end %>
+  </div>
+  <div class="room_new_edit_field">
+    <p class="room_new_edit_item"><%= f.label :key, "キー" %></p>
+    <%= f.number_field :key, class:"room_new_edit_inputForm" %>
+  </div>
+  <div class="room_new_edit_field">
+    <p class="room_new_edit_item"><%= f.label :memo, "メモ" %></p>
+    <%= f.text_area :memo, class:"room_new_edit_inputForm" %>
+  </div>
+  <div class="room_new_edit_actions">
+    <%= f.submit "保存", class:"btnA"%>
+    <%= link_to "キャンセル", mypage_path, class:"btnB" %>
+  </div>
+<% end %>
