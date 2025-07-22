@@ -196,11 +196,6 @@ html {
     transition: all 0.3s ease;
 }
 
-.practice-item:hover {
-    border-left-color: #ff00ff;
-    transform: translateX(10px);
-}
-
 .practice-header {
     display: flex;
     justify-content: space-between;
@@ -303,12 +298,6 @@ html {
     padding: 1.5rem;
     border: 1px solid rgba(0, 245, 255, 0.3);
     transition: all 0.3s ease;
-}
-
-.repertoire-item:hover {
-    transform: translateY(-5px);
-    border-color: #00f5ff;
-    box-shadow: 0 15px 30px rgba(0, 245, 255, 0.2);
 }
 
 .repertoire-title {
