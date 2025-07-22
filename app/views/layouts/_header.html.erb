@@ -20,6 +20,7 @@
           </p>
 
           <div class="dropdown_menu">
+            <%= link_to 'マイページ', mypage_path, class: 'dropdown_item' %><br>
             <%= link_to 'プロフィール', user_profile_path, class: 'dropdown_item' %><br>
             <%= link_to 'アカウント設定', user_account_path, class: 'dropdown_item' %><br>
             <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'dropdown_item signout_link' %>
@@ -28,9 +29,9 @@
 
       <% else %>
         <p class= "nav_link">練習広場</p>
-        <%= link_to 'ログイン', new_user_session_path, class:'signin_link1' %>
-        <%= link_to '新規登録', new_user_registration_path, class:'signup_link1' %>
+          <%= link_to 'ログイン', new_user_session_path, class:'signin_link1' %>
+          <%= link_to '新規登録', new_user_registration_path, class:'signup_link1' %>
       <% end %>
     </nav>
-  <div>
+  </div>
 </header>
