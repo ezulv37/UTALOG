@@ -1,0 +1,31 @@
+<section class="account_container">
+  <div class="accountInformation">
+    <div class="accountInformation_header">
+      <h3 class="accountInformation_header_title">プロフィール編集</h3>
+    </div>
+
+    <%= form_with model: @user, url: user_profile_path, method: :patch, local: true, html: { multipart: true } do |f| %>
+      <div class="field">
+        <%= f.label :image, "アイコン画像", class:"account_item_title" %>
+        <div class="account_image_uploadform">
+          <div class="account_image">
+            <% if @user.image.attached? %>
+              <%= image_tag @user.image, size: "80x80" %>
+            <% else %>
+              <%= image_tag 'default_icon.png', size: "80x80" %>
+            <% end %>
+          </div>
+            <%= f.file_field :image %>
+        </div>
+      </div>
+      <div class="field">
+        <th><%= f.label :name, "名前", class: "account_item_title" %></th>
+        <td><%= f.text_field :name, class: "account_item_inputform" %></td>
+      </div>
+      <div class="actions">
+        <%= f.submit "保存", class: "account_edit_savebtn" %>
+    <% end %>
+        <%= link_to "キャンセル", :back, class: "account_edit_cancelbtn" %>
+      </div>
+  </div>
+</section>
