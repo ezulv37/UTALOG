@@ -1,0 +1,28 @@
+<!-- 認証セクション -->
+<section style="margin-top: 4rem;">
+  <h2 style="margin-bottom: 2rem; color: #00f5ff; text-align: center;">🚀 今すぐ始めよう</h2>
+  <div class="card" style="max-width: 600px; margin: 0 auto;">
+    <div style="text-align: center; margin-bottom: 2rem;">
+      <p style="font-size: 1.1rem; margin-bottom: 2rem;">UTALOGで、あなたの歌声の成長を記録しませんか？</p>
+    </div>
+
+    <div style="display: flex; flex-direction: column; gap: 1rem; align-items: center;">
+      <button class="btn" style="width: 100%; max-width: 300px;">
+        <%= link_to '新規登録', new_user_registration_path, class:'signup_link' %>
+      </button>
+      <button class="btn" style="width: 100%; max-width: 300px; background: linear-gradient(45deg, #6c757d, #495057);">
+        <%= link_to 'ログイン', new_user_session_path, class:'signin_link' %>
+      </button>
+      <button class="btn" style="width: 100%; max-width: 300px; background: linear-gradient(45deg, #28a745, #20c997);">
+        ゲストで始める
+    </div>
+
+    <div style="text-align: center; margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid rgba(0, 245, 255, 0.3);">
+      <p style="font-size: 0.9rem; color: #ccc;">
+        ✅ アカウント作成は1分で完了<br>
+        ✅ ゲストモードでお試し利用も可能<br>
+        ✅ 個人情報は安全に保護されます
+      </p>
+    </div>
+  </div>
+</section>
