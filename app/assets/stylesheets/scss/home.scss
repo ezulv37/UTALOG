@@ -1,0 +1,326 @@
+/* メインコンテンツ */
+.main-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 32px;
+}
+
+/* ヒーローセクション */
+.hero {
+    text-align: center;
+    padding: 64px 0;
+    position: relative;
+}
+
+.hero h1 {
+    font-size: 56px;
+    margin-bottom: 16px;
+    background: linear-gradient(45deg, #00f5ff, #ff00ff, #00f5ff);
+    background-size: 200% 200%;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradientMove 3s ease-in-out infinite;
+}
+
+@keyframes gradientMove {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+}
+
+.hero p {
+    margin-bottom: 32px;
+    opacity: 0.8;
+}
+
+/* ボタン */
+.btn {
+    display: inline-block;
+    padding: 16px 32px;
+    background: linear-gradient(45deg, #00f5ff, #0066ff);
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    border: none;
+    cursor: pointer;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(0, 245, 255, 0.3);
+}
+
+.btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s;
+}
+
+.btn:hover::before {
+    left: 100%;
+}
+
+/* カード */
+.card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    padding: 32px;
+    margin: 16px 0;
+    border: 1px solid rgba(0, 245, 255, 0.3);
+    transition: all 0.3s ease;
+}
+
+/* グリッドレイアウト */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 32px;
+    margin: 48px 0;
+}
+
+/* アニメーション波形 */
+.waveform {
+    display: flex;
+    align-items: end;
+    height: 80px;
+    gap: 2px;
+    margin: 32px 0;
+    justify-content: center;
+}
+
+.wave-bar {
+    width: 4px;
+    background: linear-gradient(to top, #00f5ff, #ff00ff);
+    border-radius: 2px;
+    animation: waveAnimation 1.5s ease-in-out infinite;
+}
+
+.wave-bar:nth-child(odd) {
+    animation-delay: 0.1s;
+}
+
+.wave-bar:nth-child(even) {
+    animation-delay: 0.3s;
+}
+
+@keyframes waveAnimation {
+    0%, 100% { height: 10px; }
+    50% { height: 60px; }
+}
+
+/* スペクトラム装飾バー */
+.spectrum-bar {
+    position: relative;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(90deg, #ff00ff, #00f5ff, #ff00ff, #00f5ff);
+    background-size: 200% 100%;
+    animation: spectrumMove 3s linear infinite;
+    margin-top: 32px;
+}
+
+@keyframes spectrumMove {
+    0% { background-position: 0% 0%; }
+    100% { background-position: 200% 0%; }
+}
+
+/* 練習ログカード */
+.practice-log {
+    background: rgba(0, 0, 0, 0.4);
+    border-left: 4px solid #00f5ff;
+    padding: 24px;
+    margin: 16px 0;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+.practice-log:hover {
+    border-left-color: #ff00ff;
+    transform: translateX(10px);
+}
+
+.song-title {
+    color: #00f5ff;
+    font-size: 1.32px;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.song-meta {
+    color: #ccc;
+    font-size: 14px;
+    margin-bottom: 16px;
+}
+
+/* YouTube動画セクション */
+.youtube-section {
+    margin: 64px 0;
+}
+
+.video-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 32px;
+    margin-top: 32px;
+}
+
+.video-card {
+    background: rgba(0, 0, 0, 0.6);
+    border-radius: 15px;
+    overflow: hidden;
+    border: 1px solid rgba(0, 245, 255, 0.3);
+    transition: all 0.3s ease;
+}
+
+.video-card:hover {
+    transform: translateY(-5px);
+    border-color: #00f5ff;
+    box-shadow: 0 15px 30px rgba(0, 245, 255, 0.2);
+}
+
+.video-embed {
+    width: 100%;
+    height: 200px;
+    border: none;
+}
+
+.video-info {
+    padding: 24px;
+}
+
+.video-title {
+    color: #00f5ff;
+    font-size: 1.16px;
+    font-weight: bold;
+    margin-bottom: 8px;
+    line-height: 1.4;
+}
+
+.video-description {
+    color: #ccc;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.error-message {
+    color: #ff6b6b;
+    text-align: center;
+    padding: 32px;
+    background: rgba(255, 107, 107, 0.1);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 107, 107, 0.3);
+}
+
+/* レスポンシブデザイン */
+@media (max-width: 768px) {
+    .header-content {
+        padding: 0 16px;
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .nav-menu {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .hero h1 {
+        font-size: 40px;
+    }
+
+    .main-container {
+        padding: 16px;
+    }
+
+    .grid {
+        grid-template-columns: 1fr;
+    }
+
+    .video-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* 認証ボタンのスタイル拡張 */
+.btn-secondary {
+    background: linear-gradient(45deg, #6c757d, #495057);
+}
+
+.btn-success {
+    background: linear-gradient(45deg, #28a745, #20c997);
+}
+
+.btn-secondary:hover, .btn-success:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* フォーム要素 */
+.form-group {
+    margin-bottom: 24px;
+}
+
+.form-label {
+    display: block;
+    margin-bottom: 8px;
+    color: #00f5ff;
+    font-weight: bold;
+}
+
+.form-input {
+    width: 100%;
+    padding: 16px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(0, 245, 255, 0.3);
+    border-radius: 10px;
+    color: white;
+    font-size: 16px;
+}
+
+.form-input:focus {
+    outline: none;
+    border-color: #00f5ff;
+    box-shadow: 0 0 10px rgba(0, 245, 255, 0.3);
+}
+
+.form-input::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+/* スクロールトップボタン */
+.scroll-to-top {
+    position: fixed;
+    bottom: 32px;
+    right: 32px;
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(45deg, #00f5ff, #0066ff);
+    border: none;
+    border-radius: 50%;
+    color: white;
+    font-size: 1.32px;
+    cursor: pointer;
+    opacity: 0;
+    transform: translateY(100px);
+    transition: all 0.3s ease;
+    z-index: 100;
+}
+
+.scroll-to-top.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.scroll-to-top:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 245, 255, 0.3);
+}

@@ -1,0 +1,124 @@
+/* ヘッダー */
+header {
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid #00f5ff;
+    padding: 16px 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.header_container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 32px;
+}
+
+.logo {
+    width: 221px;
+    box-sizing: border-box;
+}
+
+.nav_item{
+    display: flex;
+    align-items: center;
+    gap: 32px;
+}
+
+.signin_link1, .signup_link1{
+    display: inline-block;
+    padding: 8px 20px;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    border: none;
+    cursor: pointer;
+}
+
+.signin_link1{
+background-color: #ffff;
+color:  #00a2ff;
+margin-right: 10px;
+}
+
+.signup_link1{
+  background: linear-gradient(45deg, #00f5ff, #0066ff);
+  color: white;
+}
+
+.signin_link1:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(0, 245, 255, 0.3);
+}
+
+.signup_link1:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(0, 245, 255, 0.3);
+}
+
+.header_username{
+color: #ffff;
+font-size: 18px;
+}
+
+.nav_link {
+    color: #ffffff;
+    text-decoration: none;
+    padding: 8px 16px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.nav_link:hover {
+    color: #00f5ff;
+    text-shadow: 0 0 5px #00f5ff;
+}
+
+/*ドロップダウンメニュー*/
+.dropdown {
+    position: relative;
+  }
+
+  .dropdown_menu {
+    display: none;
+    position: absolute;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    min-width: 135px;
+    padding: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    font-size: 14px;
+    right: 0;
+    left: auto;
+    z-index: 999;
+  }
+
+  .dropdown_menu a {
+    display: block;
+    padding: 5px 10px;
+    color: black;
+    text-decoration: none;
+  }
+
+  .dropdown_menu a:hover {
+    background-color: #f0f0f0;
+  }
+
+  .dropdown_menu.show {
+    display: block;
+  }
+
+  .signout_link{
+    background-color: #ffff;
+    color: #000000;
+    border: #000000;
+    }
+
