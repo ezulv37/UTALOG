@@ -354,16 +354,6 @@ html {
     border: 1px solid rgba(27, 87, 90, 0.8);
 }
 
-.repertoire-edit-button{
-  background: linear-gradient(45deg, #00f5ff, #0066ff);
-  color: white;
-}
-
-.repertoire-delete-button{
-  background-color: #ffff;
-  color:  #00a2ff;
-}
-
 .repertoire-edit-button:hover{
     transform: translateY(-2px);
     box-shadow: 0 10px 20px rgba(0, 245, 255, 0.3);
