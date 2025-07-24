@@ -1,6 +1,6 @@
 document.addEventListener("turbolinks:load", () => {
-  // タブの見出し（tab-btn）を取得
-  const tabBtns = document.querySelectorAll(".tab-btn");
+  // タブの見出し（tab_btn）を取得
+  const tabBtns = document.querySelectorAll(".tab_btn");
 
   tabBtns.forEach((tabBtn) => {
     tabBtn.addEventListener("click", () => {
@@ -9,7 +9,7 @@ document.addEventListener("turbolinks:load", () => {
         t.classList.remove("active");
       });
       // すべてのコンテンツを非表示にする
-      const tabContents = document.querySelectorAll(".tab-content");
+      const tabContents = document.querySelectorAll(".tab_content");
       tabContents.forEach((tabContent) => {
         tabContent.classList.remove("active");
       });
