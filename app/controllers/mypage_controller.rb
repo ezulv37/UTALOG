@@ -4,5 +4,6 @@ class MypageController < ApplicationController
   def index
     @user = current_user
     @songs = current_user.songs
+    @practices = current_user.practices
   end
 end
