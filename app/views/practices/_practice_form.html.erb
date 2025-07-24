@@ -1,0 +1,38 @@
+<%= render "shared/error", obj: practice %>
+<section>
+  <%= form_with model: practice, local: true, html: { class: "card" } do |f| %>
+    <div class="form-group">
+      <p class="form-label"><%= f.label :title ,"曲名" %></p>
+      <%= f.text_field :title, class:"form-input" %>
+    </div>
+    <div class="form-group">
+      <p class="form-label"><%= f.label :artist ,"アーティスト" %></p>
+      <%= f.text_field :artist, class:"form-input" %>
+    </div>
+    <div class="form-group">
+      <p class="form-label"><%= f.label :key, "キー" %></p>
+      <%= f.number_field :key, class:"form-input" %>
+    </div>
+    <div class="form-group">
+      <p class="form-label"><%= f.label :score, "スコア" %></p>
+      <%= f.number_field :score, class:"form-input" %>
+    </div>
+    <div class="form-group">
+      <p class="form-label"><%= f.label :result_image1, "結果画像1" %></p>
+      <%= f.file_field :result_image1, class:"form-input" %>
+    </div>
+    <div class="form-group">
+      <p class="form-label"><%= f.label :result_image2, "結果画像2" %></p>
+      <%= f.file_field :result_image2, class:"form-input" %>
+    </div>
+
+    <div class="form-group">
+      <p class="form-label"><%= f.label :comment, "練習メモ" %></p>
+      <%= f.text_area :comment, class:"form-input" %>
+    </div>
+    <div class="practice_new_edit_actions">
+      <%= f.submit "保存", class:"btnA"%>
+      <%= link_to "キャンセル", mypage_path, class:"btnB" %>
+    </div>
+  <% end %>
+</section>
