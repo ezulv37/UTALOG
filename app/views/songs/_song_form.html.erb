@@ -22,7 +22,7 @@
       "演歌・歌謡曲"
     ] %>
     <% genres.each do |genre| %>
-      <div class="radio-item">
+      <div class="radio_item">
         <%= f.radio_button :genre, genre, id: "song_genre_#{genre.parameterize}" %>
         <%= label_tag "song_genre_#{genre.parameterize}", genre %>
       </div>
