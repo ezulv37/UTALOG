@@ -7,4 +7,5 @@ class User < ApplicationRecord
   has_one_attached :image
 
   has_many :songs, dependent: :destroy
+  has_many :practices, dependent: :destroy
 end
