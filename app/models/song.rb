@@ -3,5 +3,5 @@ class Song < ApplicationRecord
 
   validates :title, :artist, presence: true
   validates :key, numericality: { only_integer: true }, allow_nil: true
-  validates :comment, length: { maximum: 200 }, allow_blank: true
+  validates :memo, length: { maximum: 200 }, allow_blank: true
 end
