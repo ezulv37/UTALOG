@@ -1,25 +1,29 @@
 document.addEventListener("turbolinks:load", () => {
-  // タブの見出し（tab_btn）を取得
   const tabBtns = document.querySelectorAll(".tab_btn");
+  const tabContents = document.querySelectorAll(".tab_content");
 
-  tabBtns.forEach((tabBtn) => {
-    tabBtn.addEventListener("click", () => {
-      // すべてのタブを非アクティブにする
-      tabBtns.forEach((t) => {
-        t.classList.remove("active");
-      });
-      // すべてのコンテンツを非表示にする
-      const tabContents = document.querySelectorAll(".tab_content");
-      tabContents.forEach((tabContent) => {
-        tabContent.classList.remove("active");
-      });
+  // URLパラメータから?tab=xxx を取得
+  const urlParams = new URLSearchParams(window.location.search);
+  const defaultTab = urlParams.get("tab") || "practice";
 
-      // クリックされたタブをアクティブにする
-      tabBtn.classList.add("active");
+  // タブ切り替えの関数
+  const switchTab = (tabName) => {
+    tabBtns.forEach((btn) => {
+      btn.classList.toggle("active", btn.dataset.tab === tabName);
+    });
+    tabContents.forEach((content) => {
+      content.classList.toggle("active", content.dataset.tab === tabName);
+    });
+  };
 
-      // 対応するコンテンツを表示
-      const tabIndex = Array.from(tabBtns).indexOf(tabBtn);
-      tabContents[tabIndex].classList.add("active");
+  // 初回読み込み時のタブ
+  switchTab(defaultTab);
+
+  // タブクリック時
+  tabBtns.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const selected = btn.dataset.tab;
+      switchTab(selected);
     });
   });
 
