@@ -9,7 +9,7 @@ class SongsController < ApplicationController
     @song = current_user.songs.new(song_params)
     if @song.save
       flash[:notice] = "レパートリー楽曲を新規登録しました"
-      redirect_to mypage_path
+      redirect_to mypage_path(tab: 'repertoire')
     else
       render :new
     end
@@ -23,7 +23,7 @@ class SongsController < ApplicationController
     @song = current_user.songs.find(params[:id])
     if @song.update(song_params)
       flash[:notice] = "レパートリー楽曲を更新しました"
-      redirect_to mypage_path
+      redirect_to mypage_path(tab: 'repertoire')
     else
       render :edit
     end
@@ -33,7 +33,7 @@ class SongsController < ApplicationController
     @song = Song.find(params[:id])
     @song.destroy
     flash[:notice] = "レパートリー楽曲を削除しました"
-    redirect_to mypage_path
+    redirect_to mypage_path(tab: 'repertoire')
   end
 
   private
