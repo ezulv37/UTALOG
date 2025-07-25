@@ -11,17 +11,7 @@
   </div>
   <div class="song_new_edit_field">
     <p class="song_new_edit_item"><%= f.label :genre, "ジャンル" %></p>
-    <% genres = [
-      "J-POP",
-      "ロック",
-      "バラード",
-      "アニメ・ボカロ",
-      "K-POP/洋楽",
-      "アイドルソング",
-      "ヒップホップ/R&B",
-      "演歌・歌謡曲"
-    ] %>
-    <% genres.each do |genre| %>
+    <% genre_options.each do |genre| %>
       <div class="radio_item">
         <%= f.radio_button :genre, genre, id: "song_genre_#{genre.parameterize}" %>
         <%= label_tag "song_genre_#{genre.parameterize}", genre %>
