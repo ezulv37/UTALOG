@@ -1,6 +1,14 @@
 <main class="main-container">
-  <%= render 'shared/home/first_view' %>
-  <%= render 'shared/home/user_login' %>
-  <%= render 'shared/home/current_practice_log' %>
-  <%= render 'shared/home/youtube' %>
+  <div class="first_view">
+    <%= render 'home/app_title' %>
+    <% if user_signed_in? %>
+      <!-- ログイン中は何も表示しない -->
+    <% else %>
+      <%= render 'home/user_login' %>
+    <% end %>
+  </div>
+  <div class="log_youtube_container">
+    <%= render 'home/youtube' %>
+    <%= render 'home/open_practice_log', practice_logs: @practice_logs %>
+  </div>
 </main>
