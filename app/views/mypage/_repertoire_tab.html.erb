@@ -24,7 +24,7 @@
         <div class="repertoire_details_container">
         <div class="repertoire_details">
             <div class="detail_tag"><%= song.genre %></div>
-            <div class="detail_tag">キー: <%= song.key %></div>
+            <div class="detail_tag">キー: <%= song.key_display %></div>
           </div>
           <div class="repertoire_edit_delete">
             <%= link_to '編集', edit_song_path(song.id), class:'repertoire_edit_button' %>
