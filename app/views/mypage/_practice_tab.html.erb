@@ -1,0 +1,55 @@
+<div id="practice_log" class="tab_content" data-tab="practice">
+  <!-- 検索フォーム：練習ログ -->
+  <div class="search_form_container">
+    <%= form_with url: mypage_path, method: :get, local: true do |f| %>
+      <%= f.text_field :practice_q, placeholder: "曲名・アーティスト名で検索", value: params[:practice_q], class: "search_input" %>
+      <%= f.hidden_field :tab, value: "practice" %>
+      <%= f.submit "検索", class: "search_button" %>
+    <% end %>
+  </div>
+  <!-- メインコンテンツ：練習ログ -->
+  <ul class="practice_list">
+    <% practices.each do |practice| %>
+      <li class="practice_item">
+        <div class="practice_song_info">
+          <div class="practice_title"><%= practice.title %></div>
+          <div class="practice_artist"><%= practice.artist %></div>
+        </div>
+        <div class="practice_meta">
+          <div class="meta_item">キー: <%= practice.key %></div>
+          <div class="meta_item score_item"><%= practice.score %>点</div>
+        </div>
+        <div class="result_images">
+          <div class="result_image">
+            <% if practice.result_image1&.attached? %>
+              <%= image_tag practice.result_image1, size: "120x70", class:"popup" %>
+            <% else %>
+              📊 結果画像1
+            <% end %>
+          </div>
+          <div class="result_image">
+            <% if practice.result_image2&.attached? %>
+              <%= image_tag practice.result_image2, size: "120x70", class:"popup" %>
+            <% else %>
+              📈 結果画像2
+            <% end %>
+          </div>
+          <!-- モーダル -->
+          <div id="modal" class="modal">
+            <img class="modal_content" id="modalImage">
+          </div>
+        </div>
+        <div class="practice_memo">
+          <%= practice.comment %>
+        </div>
+        <div class="practice-footer">
+          <div class="practice_edit_delete">
+            <%= link_to '編集', edit_practice_path(practice.id), class:"practice_edit_button" %>
+            <%= link_to '削除', practice_path(practice.id), method: :delete, data: { confirm: "本当に削除しますか？" }, class:"practice_delete_button" %>
+          </div>
+          <div class="practice_date"><%= practice.created_at.to_s(:datetime_jp) %></div>
+        </div>
+      </li>
+    <% end %>
+  </ul>
+</div>
