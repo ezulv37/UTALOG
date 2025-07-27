@@ -13,7 +13,7 @@ class ProfilesController < ApplicationController
     @user = current_user
 
     # チェックボックスがONなら画像を削除
-    if params[:remove_image] == "1"
+    if params[:user][:remove_image] == '1'
       @user.image.purge
     end
 
