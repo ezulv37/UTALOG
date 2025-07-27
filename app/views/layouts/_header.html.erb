@@ -9,7 +9,7 @@
     <nav class="nav_item">
       <% if user_signed_in? %>
         <% if current_user.image.attached? %>
-          <%= image_tag current_user.image, size: "45x45" %>
+          <%= image_tag current_user.image, size: "45x45", class: "icon_image" %>
         <% else %>
           <%= image_tag 'default_icon.png', size: "45x45", class: "icon_image" %>
         <% end %>
