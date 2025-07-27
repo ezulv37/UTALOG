@@ -1,0 +1,40 @@
+<div id="repertoire" class="tab_content" data-tab="repertoire">
+  <!-- 検索フォーム：楽曲レパートリー -->
+  <div class="search_form_container">
+    <%= form_with url: mypage_path, method: :get, local: true do |f| %>
+      <%= f.text_field :song_q, placeholder: "曲名・アーティスト名で検索", value: params[:song_q], class: "search_input" %>
+      <div class="genre_checkboxes">
+        <% genre_options.each do |genre| %>
+          <label>
+            <%= check_box_tag 'genres[]', genre, params[:genres]&.include?(genre), id: "genre_#{genre.parameterize}" %>
+            <%= genre %>
+          </label>
+        <% end %>
+      </div>
+      <%= f.hidden_field :tab, value: "repertoire" %>
+      <%= f.submit "検索", class: "search_button" %>
+    <% end %>
+  </div>
+  <!-- メインコンテンツ：楽曲レパートリー -->
+  <ul class="repertoire_grid">
+    <% songs.each do |song| %>
+      <li class="repertoire_item">
+        <div class="repertoire_title"><%= song.title %></div>
+        <div class="repertoire_artist"><%= song.artist %></div>
+        <div class="repertoire_details_container">
+        <div class="repertoire_details">
+            <div class="detail_tag"><%= song.genre %></div>
+            <div class="detail_tag">キー: <%= song.key %></div>
+          </div>
+          <div class="repertoire_edit_delete">
+            <%= link_to '編集', edit_song_path(song.id), class:'repertoire_edit_button' %>
+            <%= link_to '削除', song_path(song.id), method: :delete, data: { confirm: "本当に削除しますか？" }, class:'repertoire_delete_button' %>
+          </div>
+        </div>
+        <div class="repertoire_memo">
+          <%= song.memo %>
+        </div>
+      </li>
+    <% end %>
+  </ul>
+</div>
