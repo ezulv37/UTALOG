@@ -1,0 +1,32 @@
+<section class="user_info">
+  <div class="user_details">
+    <div class="user_avatar_name">
+      <div class="user_avatar">
+        <% if user.image.attached? %>
+          <%= image_tag @user.image, size: "80x80", class: "icon_image" %>
+        <% else %>
+          <%= image_tag 'default_icon.png', size: "80x80", class: "icon_image" %>
+        <% end %>
+      </div>
+      <h2><%= user.name %></h2>
+    </div>
+    <div class="user_stats">
+      <div class="stat_item">
+        <span class="stat_value"><%= practices.count %></span>
+        <span class="stat_label">練習回数</span>
+      </div>
+      <div class="stat_item">
+        <span class="stat_value"><%= songs.count %></span>
+        <span class="stat_label">楽曲数</span>
+      </div>
+      <div class="stat_item">
+        <span class="stat_value"><%= score_average %></span>
+        <span class="stat_label">平均スコア</span>
+      </div>
+    </div>
+  </div>
+  <div class="add_buttons">
+    <%= link_to '練習する', new_practice_path, class:'practice_add_button' %>
+    <%= link_to 'レパートリー追加', new_song_path, class:'repertoire_add_button' %>
+  </div>
+</section>
