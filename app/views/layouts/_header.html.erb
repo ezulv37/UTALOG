@@ -28,9 +28,10 @@
         </div>
 
       <% else %>
-        <p class= "nav_link">練習広場</p>
+        <div class="header_btns">
           <%= link_to 'ログイン', new_user_session_path, class:'signin_link1' %>
           <%= link_to '新規登録', new_user_registration_path, class:'signup_link1' %>
+        </div>
       <% end %>
     </nav>
   </div>
