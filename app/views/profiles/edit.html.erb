@@ -17,6 +17,13 @@
           </div>
             <%= f.file_field :image %>
         </div>
+        <%# 画像削除チェックボックス %>
+        <% if @user.image.attached? %>
+          <div class="field">
+            <%= f.label :remove_image, "画像を削除する", class: "account_item_title" %>
+            <%= f.check_box :remove_image %>
+          </div>
+        <% end %>
       </div>
       <div class="field">
         <th><%= f.label :name, "名前", class: "account_item_title" %></th>
