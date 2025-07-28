@@ -6,17 +6,15 @@
       <% user = practice.user %>
       <li class="log_card">
         <div class="log_user_info">
-          <div class="log_user_avatar">
+          <div class="log_user_avatar_name">
             <% if user.image.attached? %>
               <%= image_tag user.image, size: "35x35", class: "icon_image" %>
             <% else %>
               <%= image_tag 'default_icon.png', size: "35x35", class: "icon_image" %>
             <% end %>
-          </div>
-          <div class="log_user_name_date">
             <p class= "log_user_name"><%= user.name %></p>
-            <p class= "log_practice_date">練習日: <%= practice.created_at.to_s(:datetime_jp) %></p>
           </div>
+          <p class= "log_practice_date"><%= practice.created_at.to_s(:datetime_jp) %></p>
         </div>
         <div class="log_practice_info">
           <div class="log_song_title"><%= practice.title %></div>
