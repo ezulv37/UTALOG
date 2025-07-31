@@ -1,29 +1,35 @@
-<!-- 公開練習ログ -->
 <section class="open_practice_log_section">
-  <h2 class="section_title">ー公開練習ログー</h2>
-  <ul class="open_practice_log_container">
-    <% practice_logs.each do |practice| %>
-      <% user = practice.user %>
-      <li class="log_card">
-        <div class="log_user_info">
-          <div class="log_user_avatar_name">
-            <% if user.image.attached? %>
-              <%= image_tag user.image, size: "35x35", class: "icon_image" %>
-            <% else %>
-              <%= image_tag 'default_icon.png', size: "35x35", class: "icon_image" %>
-            <% end %>
-            <p class= "log_user_name"><%= user.name %></p>
+  <div class="open_practice_log_container">
+    <h2 class="section_title">ー公開練習ログー</h2>
+    <p style="text-align: center; color: #ccc; margin-bottom: 2rem;">
+      他ユーザーはこんな曲を練習しています！
+    </p>
+    <ul class="open_practice_log_list">
+      <% practice_logs.each do |practice| %>
+        <% user = practice.user %>
+        <li class="log_card">
+          <div class="log_user_info">
+            <div class="log_user_avatar_name">
+              <% if user.image.attached? %>
+                <%= image_tag user.image, size: "35x35", class: "open_practice_log_icon_image" %>
+              <% else %>
+                <%= image_tag 'default_icon.png', size: "35x35", class: "open_practice_log_icon_image" %>
+              <% end %>
+              <p class= "log_user_name"><%= user.name %></p>
+            </div>
+            <p class= "log_practice_date"><%= practice.created_at.to_s(:datetime_jp) %></p>
           </div>
-          <p class= "log_practice_date"><%= practice.created_at.to_s(:datetime_jp) %></p>
-        </div>
-        <div class="log_practice_info">
-          <div class="log_song_title"><%= practice.title %></div>
-          <div class="log_song_artist"><%= practice.artist %></div>
-          <span class="log_song_meta">キー: <%= practice.key_display %></span>
-          <span class="log_song_meta">スコア: <%= practice.score %>点</span>
-          <div class="log_practice_comment"><%= practice.comment %></div>
-        </div>
-      </li>
-    <% end %>
-  </ul>
+          <div class="log_practice_info">
+            <div class="log_song_title"><%= practice.title %></div>
+            <div class="log_song_artist"><%= practice.artist %></div>
+            <div class="log_song_metas">
+              <span class="log_song_meta">キー: <%= practice.key_display %></span>
+              <span class="log_song_meta">スコア: <%= practice.score %>点</span>
+            </div>
+            <div class="log_practice_comment"><%= practice.comment %></div>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
 </section>
