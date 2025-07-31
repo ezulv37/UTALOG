@@ -3,9 +3,9 @@
     <div class="user_avatar_name">
       <div class="user_avatar">
         <% if user.image.attached? %>
-          <%= image_tag @user.image, size: "80x80", class: "icon_image" %>
+          <%= image_tag @user.image, size: "80x80", class: "mypage_icon_image" %>
         <% else %>
-          <%= image_tag 'default_icon.png', size: "80x80", class: "icon_image" %>
+          <%= image_tag 'default_icon.png', size: "80x80", class: "mypage_icon_image" %>
         <% end %>
       </div>
       <h2><%= user.name %></h2>
