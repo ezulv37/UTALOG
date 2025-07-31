@@ -7,7 +7,7 @@ module ApplicationHelper
       "アニメ・ボカロ",
       "K-POP/洋楽",
       "アイドルソング",
-      "ヒップホップ/R&B",
+      "Hip Hop/R&B",
       "演歌・歌謡曲"
     ]
   end
