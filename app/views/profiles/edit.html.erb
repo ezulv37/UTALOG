@@ -1,26 +1,23 @@
-<section class="account_container">
-  <div class="accountInformation">
-    <div class="accountInformation_header">
-      <h3 class="accountInformation_header_title">プロフィール編集</h3>
-    </div>
-
+<div class="setting_container">
+  <div class="account_information">
+    <h2 class="account_information_header_title">プロフィール編集</h2>
     <%= form_with model: @user, url: user_profile_path, method: :patch, local: true, html: { multipart: true } do |f| %>
       <div class="field">
-        <%= f.label :image, "アイコン画像", class:"account_item_title" %>
-        <div class="account_image_uploadform">
-          <div class="account_image">
+        <%= f.label :image, "アイコン画像", class:"account_edit_avatar" %>
+        <div class="account_avatar_uploadform">
+          <div class="edit_user_avatar_container">
             <% if @user.image.attached? %>
-              <%= image_tag @user.image, size: "80x80" %>
+              <%= image_tag @user.image, size: "80x80", class:"edit_user_avatar" %>
             <% else %>
-              <%= image_tag 'default_icon.png', size: "80x80" %>
+              <%= image_tag 'default_icon.png', size: "80x80", class:"edit_user_avatar" %>
             <% end %>
           </div>
-            <%= f.file_field :image %>
+          <%= f.file_field :image, class:"account_edit_input" %>
         </div>
         <%# 画像削除チェックボックス %>
         <% if @user.image.attached? %>
-          <div class="field">
-            <%= f.label :remove_image, "画像を削除する", class: "account_item_title" %>
+          <div class="remove_image_field">
+            <%= f.label :remove_image, "画像を削除する", class: "avatar_delete_checkbox" %>
             <%= f.check_box :remove_image %>
           </div>
         <% end %>
@@ -35,4 +32,4 @@
         <%= link_to "キャンセル", :back, class: "account_edit_cancelbtn" %>
       </div>
   </div>
-</section>
+</div>
