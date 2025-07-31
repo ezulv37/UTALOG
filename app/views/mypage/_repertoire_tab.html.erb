@@ -2,17 +2,19 @@
   <!-- 検索フォーム：楽曲レパートリー -->
   <div class="search_form_container">
     <%= form_with url: mypage_path, method: :get, local: true do |f| %>
-      <%= f.text_field :song_q, placeholder: "曲名・アーティスト名で検索", value: params[:song_q], class: "search_input" %>
+      <div class="search_input_container">
+        <%= f.text_field :song_q, placeholder: "曲名・アーティスト名で検索", value: params[:song_q], class: "search_input" %>
+        <%= f.hidden_field :tab, value: "repertoire" %>
+        <%= f.submit "検索", class: "search_button" %>
+      </div>
       <div class="genre_checkboxes">
         <% genre_options.each do |genre| %>
-          <label>
+          <label class="genre_checkbox_label">
             <%= check_box_tag 'genres[]', genre, params[:genres]&.include?(genre), id: "genre_#{genre.parameterize}" %>
-            <%= genre %>
+            <span class="genre_name"><%= genre %></span>
           </label>
         <% end %>
       </div>
-      <%= f.hidden_field :tab, value: "repertoire" %>
-      <%= f.submit "検索", class: "search_button" %>
     <% end %>
   </div>
   <!-- メインコンテンツ：楽曲レパートリー -->
