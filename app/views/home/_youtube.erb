@@ -1,0 +1,28 @@
+<section class="youtube_section">
+  <div class="youtube_container">
+    <h2 class="section_title">ーYOUTUBE動画ー</h2>
+    <p style="text-align: center; color: #ccc; margin-bottom: 2rem;">
+      動画を参考にもっとレベルアップ！<br>
+      曲を検索して音程チェックも！
+    </p>
+    <div class="youtube_search_container">
+      <div class="youtube_search_form">
+        <%= form_with url: root_path, method: :get, local: true do |f| %>
+          <%= f.text_field :query, value: params[:query], placeholder: "キーワードを入力", class: "youtube_search_input_form" %>
+          <%= f.submit "検索", class: "search_button" %>
+        <% end %>
+      </div>
+      <div class="youtube-video">
+        <% @videos.each do |video| %>
+          <div class="video">
+            <h3><%= video[:title] %></h3>
+            <iframe
+              src="https://www.youtube.com/embed/<%= video[:video_id] %>"
+              frameborder="0">
+            </iframe>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</section>
