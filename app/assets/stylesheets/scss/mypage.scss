@@ -1,108 +1,94 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 25%, #16213e  50%, #0f3460 100%);
-    background-attachment: fixed;
-    color: #ffffff;
-    min-height: 100vh;
-    overflow-x: hidden;
-    overflow-y: auto;
-}
-
-html {
-    scroll-behavior: smooth;
-}
-
-/* ネオンエフェクト */
-.neon-border {
-    border: 2px solid #00f5ff;
-    box-shadow: 0 0 10px #00f5ff, inset 0 0 10px #00f5ff;
-    animation: neonPulse 2s infinite alternate;
-}
-
-@keyframes neonPulse {
-    from { box-shadow: 0 0 10px #00f5ff, inset 0 0 10px #00f5ff; }
-    to { box-shadow: 0 0 20px #00f5ff, inset 0 0 15px #00f5ff; }
-}
-
 /* メインコンテンツ */
-.main-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 2rem;
+.main_container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 0 2rem;
+  padding-left: 10rem;
+  padding-right: 10rem;
 }
 
 /* ユーザー情報セクション */
-.user-info {
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
-    border-radius: 15px;
-    padding: 2rem;
-    margin-bottom: 2rem;
-    border: 1px solid rgba(0, 245, 255, 0.3);
+.user_info {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  border: 1px solid rgba(0, 245, 255, 0.3);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.user_details{
+  display: flex;
+  gap: 30px;
+}
+
+.user_avatar {
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(45deg, #00f5ff, #ff00ff);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  font-weight: bold;
+  color: #fff;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.icon_image{
+  border-radius: 50%;
+  object-fit: cover;
+  }
+
+.user_details h2 {
+  color: #00f5ff;
+  margin-bottom: 0.5rem;
+  font-size: 1.5rem;
+}
+
+.user_stats {
+  display: flex;
+  gap: 2rem;
+  margin-top: 1rem;
+}
+
+.stat_item {
+  text-align: center;
+}
+
+.stat_value {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #00f5ff;
+  display: block;
+}
+
+.stat_label {
+  font-size: 0.9rem;
+  color: #ccc;
+}
+
+.add_buttons{
     display: flex;
-    align-items: center;
-    gap: 1.5rem;
-}
-
-.user-avatar {
-    width: 80px;
-    height: 80px;
-    background: linear-gradient(45deg, #00f5ff, #ff00ff);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 2rem;
-    font-weight: bold;
-    color: #fff;
-    text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-}
-
-.user-details h2 {
-    color: #00f5ff;
-    margin-bottom: 0.5rem;
-    font-size: 1.5rem;
-}
-
-.user-stats {
-    display: flex;
-    gap: 2rem;
-    margin-top: 1rem;
-}
-
-.stat-item {
-    text-align: center;
-}
-
-.stat-value {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: #00f5ff;
-    display: block;
-}
-
-.stat-label {
-    font-size: 0.9rem;
-    color: #ccc;
+    flex-direction: column;
+    gap: 1rem;
 }
 
 .practice_add_button, .repertoire_add_button{
-    display: inline-block;
-    padding: 8px 20px;
-    text-decoration: none;
-    border-radius: 50px;
-    font-weight: bold;
-    transition: all 0.3s ease;
-    position: relative;
-    overflow: hidden;
-    border: none;
-    cursor: pointer;
+  padding: 8px 20px;
+  text-decoration: none;
+  border-radius: 50px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  border: none;
+  text-align: center;
+  box-sizing: border-box;
+  width: 100%;
 }
 
 .practice_add_button{
@@ -117,347 +103,395 @@ html {
 }
 
 .practice_add_button:hover{
-    transform: translateY(-2px);
-    box-shadow: 0 10px 20px rgba(0, 245, 255, 0.3);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(0, 245, 255, 0.3);
 }
 
 .repertoire_add_button:hover{
-    transform: translateY(-2px);
-    box-shadow: 0 10px 20px rgba(0, 245, 255, 0.3);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(0, 245, 255, 0.3);
 }
 
 /* タブナビゲーション */
-.tab-nav {
-    display: flex;
-    gap: 0;
-    margin-bottom: 2rem;
-    background: rgba(0, 0, 0, 0.4);
-    border-radius: 10px;
-    padding: 0.5rem;
+.tab_nav {
+  display: flex;
+  gap: 0;
+  margin-bottom: 2rem;
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 10px;
+  padding: 0.5rem;
 }
 
-.tab-btn {
-    flex: 1;
-    padding: 1rem 2rem;
-    background: transparent;
-    border: none;
-    color: #ccc;
-    cursor: pointer;
-    border-radius: 8px;
-    transition: all 0.3s ease;
-    font-size: 1rem;
-    font-weight: bold;
+.tab_btn {
+  flex: 1;
+  padding: 1rem 2rem;
+  background: transparent;
+  border: none;
+  color: #ccc;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  font-size: 1rem;
+  font-weight: bold;
 }
 
-.tab-btn:hover {
-    color: #00f5ff;
-    background: rgba(0, 245, 255, 0.1);
+.tab_btn:hover {
+  color: #00f5ff;
+  background: rgba(0, 245, 255, 0.1);
 }
 
-.tab-btn.active {
-    background: linear-gradient(45deg, #00f5ff, #0066ff);
-    color: white;
-    box-shadow: 0 0 10px rgba(0, 245, 255, 0.3);
+.tab_btn.active {
+  background: linear-gradient(45deg, #00f5ff, #0066ff);
+  color: white;
+  box-shadow: 0 0 10px rgba(0, 245, 255, 0.3);
 }
 
 /* タブコンテンツ */
-.tab-content {
-    display: none;
+.tab_content {
+  display: none;
 }
 
-.tab-content.active {
-    display: block;
+.tab_content.active {
+  display: block;
 }
 
-/* カード */
-.card {
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
-    border-radius: 15px;
-    padding: 2rem;
-    margin: 1rem 0;
-    border: 1px solid rgba(0, 245, 255, 0.3);
-    transition: all 0.3s ease;
+/* 検索フォーム */
+.search_form_container {
+  margin-bottom: 1rem;
 }
 
-.card:hover {
-    transform: translateY(-5px);
-    border-color: #00f5ff;
-    box-shadow: 0 15px 30px rgba(0, 245, 255, 0.2);
+.search_input_container{
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.search_input {
+  padding: 0.5em;
+  width: 50%;
+  margin-right: 0.5em;
+}
+
+.search_input::placeholder {
+  color: #7c7a7a;
+  font-style: italic;
+}
+
+.search_button {
+  padding: 0.5em 1em;
+  background-color: #666565;
+  color: white;
+  border-radius: 4px;
+}
+
+.genre_checkboxes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 20px;
+  margin: 1em 0;
+}
+
+.genre_checkbox_label{
+  flex-grow: 1;
+  flex-shrink: 0;
+  flex-basis: 21%;
+  min-width: 100px;
+}
+
+@media (max-width: 600px) {
+  .genre_checkbox_label {
+    flex-grow: 1;
+    flex-shrink: 0;
+    flex-basis: 45%;
+  }
 }
 
 /* 練習ログアイテム */
-.practice-item {
-    background: rgba(0, 0, 0, 0.4);
-    border-left: 4px solid #00f5ff;
-    padding: 1.5rem;
-    margin: 1rem 0;
-    border-radius: 10px;
-    transition: all 0.3s ease;
+.practice_item {
+  background: rgba(0, 0, 0, 0.4);
+  border-left: 4px solid #00f5ff;
+  padding: 1.5rem;
+  margin: 1rem 0;
+  border-radius: 10px;
+  transition: all 0.3s ease;
 }
 
-.practice-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    margin-bottom: 1rem;
+.practice_title, .practice_artist {
+  color: #00f5ff;
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
 }
 
-.practice-title {
-    color: #00f5ff;
-    font-size: 1.2rem;
-    font-weight: bold;
+.practice_artist {
+  color: #ff00ff;
+  font-size: 16px;
 }
 
-.practice-date {
-    color: #ccc;
-    font-size: 0.9rem;
+.practice_meta {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
 }
 
-.practice-meta {
-    display: flex;
-    gap: 1rem;
-    margin-bottom: 1rem;
-    flex-wrap: wrap;
+.meta_item {
+  background: rgba(0, 245, 255, 0.1);
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  color: #00f5ff;
+  border: 1px solid rgba(0, 245, 255, 0.3);
+  text-align: center;
 }
 
-.meta-item {
-    background: rgba(0, 245, 255, 0.1);
-    padding: 0.3rem 0.8rem;
-    border-radius: 20px;
-    font-size: 0.9rem;
-    color: #00f5ff;
-    border: 1px solid rgba(0, 245, 255, 0.3);
+.practice_memo {
+  color: #ccc;
+  line-height: 1.6;
+  margin-top: 1rem;
+  padding: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  word-wrap: break-word;
 }
 
-.score-item {
-    background: rgba(255, 0, 255, 0.1);
-    color: #ff00ff;
-    border-color: rgba(255, 0, 255, 0.3);
+.result_images {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
-.practice-media {
-    display: flex;
-    gap: 1rem;
-    margin: 1rem 0;
-    flex-wrap: wrap;
+.result_image {
+  width: 150px;
+  height: 100px;
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 10px;
+  border: 1px solid rgba(0, 245, 255, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #00f5ff;
+  transition: all 0.3s ease;
 }
 
-.audio-player {
-    background: rgba(0, 0, 0, 0.6);
-    border-radius: 10px;
-    padding: 1rem;
-    border: 1px solid rgba(0, 245, 255, 0.3);
-    flex: 1;
-    min-width: 200px;
+/* モーダルのスタイル */
+.modal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.4);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.5s, visibility 0.5s;
 }
 
-.result-images {
-    display: flex;
-    gap: 1rem;
-    flex-wrap: wrap;
+/* モーダルの画像スタイル */
+.modal_content {
+  display: block;
+  width: 80%;
+  max-width: 700px;
 }
 
-.result-image {
-    width: 150px;
-    height: 100px;
-    background: rgba(0, 0, 0, 0.6);
-    border-radius: 10px;
-    border: 1px solid rgba(0, 245, 255, 0.3);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #00f5ff;
-    cursor: pointer;
-    transition: all 0.3s ease;
+.practice-footer {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  margin-top: 1rem;
 }
 
-.result-image:hover {
-    border-color: #00f5ff;
-    box-shadow: 0 5px 15px rgba(0, 245, 255, 0.2);
+.practice_edit_delete{
+  display: flex;
+  gap: 0.5rem;
+  margin-right: 2rem;
 }
 
-.practice-memo {
-    color: #ccc;
-    line-height: 1.6;
-    margin-top: 1rem;
-    padding-top: 1rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
+.practice_edit_button, .practice_delete_button{
+  background: #ccc;
+  padding: 0.2rem 0.6rem;
+  border-radius: 15px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: rgba(27, 87, 90, 0.8);
+  border: 1px solid rgba(27, 87, 90, 0.8);
+}
+
+.practice_edit_button:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(0, 245, 255, 0.3);
+}
+
+.practice_delete_button{
+  background: #f26b6b;
+  color: #ccc;
+  border: 1px solid rgba(85, 20, 20, 0.8);
+}
+
+.practice_delete_button:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(255, 0, 0, 0.3);
+}
+
+.practice_date {
+  color: #ccc;
+  font-size: 0.9rem;
+  display: flex;
+  justify-content: end;
 }
 
 /* レパートリーアイテム */
-.repertoire-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 1.5rem;
+.repertoire_grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
 }
 
-.repertoire-item {
-    background: rgba(0, 0, 0, 0.4);
-    border-radius: 15px;
-    padding: 1.5rem;
-    border: 1px solid rgba(0, 245, 255, 0.3);
-    transition: all 0.3s ease;
+.repertoire_item {
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 15px;
+  padding: 1.5rem;
+  border: 1px solid rgba(0, 245, 255, 0.3);
+  transition: all 0.3s ease;
 }
 
-.repertoire-title {
-    color: #00f5ff;
-    font-size: 1.1rem;
-    font-weight: bold;
-    margin-bottom: 0.5rem;
+.repertoire_title {
+  color: #00f5ff;
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
 }
 
-.repertoire-artist {
-    color: #ff00ff;
-    font-weight: bold;
-    margin-bottom: 1rem;
+.repertoire_artist {
+  color: #ff00ff;
+  font-weight: bold;
+  margin-bottom: 1rem;
 }
 
-.repertoire-details-container{
+.repertoire_details_container{
   display: flex;
   justify-content: space-between;
 }
 
-.repertoire-details, .repertoire-edit-delete {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    margin-bottom: 1rem;
+.repertoire_details, .repertoire_edit_delete {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
 }
 
-.detail-tag {
-    background: rgba(0, 245, 255, 0.1);
-    padding: 0.2rem 0.6rem;
-    border-radius: 15px;
-    font-size: 0.8rem;
-    color: #00f5ff;
-    border: 1px solid rgba(0, 245, 255, 0.3);
+.detail_tag {
+  background: rgba(0, 245, 255, 0.1);
+  padding: 0.2rem 0.6rem;
+  border-radius: 15px;
+  font-size: 0.8rem;
+  color: #00f5ff;
+  border: 1px solid rgba(0, 245, 255, 0.3);
 }
 
-.repertoire-edit-button, .repertoire-delete-button{
-    background: #ccc;
-    padding: 0.2rem 0.6rem;
-    border-radius: 15px;
-    font-size: 0.8rem;
-    color: rgba(27, 87, 90, 0.8);
-    border: 1px solid rgba(27, 87, 90, 0.8);
+.repertoire_edit_button, .repertoire_delete_button{
+  background: #ccc;
+  padding: 0.2rem 0.6rem;
+  border-radius: 15px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: rgba(27, 87, 90, 0.8);
+  border: 1px solid rgba(27, 87, 90, 0.8);
 }
 
-.repertoire-edit-button:hover{
-    transform: translateY(-2px);
-    box-shadow: 0 10px 20px rgba(0, 245, 255, 0.3);
+.repertoire_delete_button{
+  background: #f26b6b;
+  color: #ccc;
+  border: 1px solid rgba(85, 20, 20, 0.8);
 }
 
-.repertoire-delete-button:hover{
-    transform: translateY(-2px);
-    box-shadow: 0 10px 20px rgba(0, 245, 255, 0.3);
+.repertoire_edit_button:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(0, 245, 255, 0.3);
 }
 
-.repertoire-memo {
-    color: #ccc;
-    font-size: 0.9rem;
-    line-height: 1.4;
-    margin-top: 1rem;
-    padding-top: 1rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
+.repertoire_delete_button:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(255, 0, 0, 0.3);
 }
 
-/* 空の状態 */
-.empty-state {
-    text-align: center;
-    padding: 4rem 2rem;
-    color: #ccc;
-}
-
-.empty-state-icon {
-    font-size: 4rem;
-    margin-bottom: 1rem;
-}
-
-.empty-state h3 {
-    color: #00f5ff;
-    margin-bottom: 1rem;
-}
-
-/* ボタン */
-.btn {
-    display: inline-block;
-    padding: 1rem 2rem;
-    background: linear-gradient(45deg, #00f5ff, #0066ff);
-    color: white;
-    text-decoration: none;
-    border-radius: 50px;
-    font-weight: bold;
-    transition: all 0.3s ease;
-    border: none;
-    cursor: pointer;
-    font-size: 1rem;
-}
-
-.btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 10px 20px rgba(0, 245, 255, 0.3);
-}
-
-.btn-small {
-    padding: 0.5rem 1rem;
-    font-size: 0.9rem;
-}
-
-/* スペクトラム装飾バー */
-.spectrum-bar {
-    position: relative;
-    width: 100%;
-    height: 5px;
-    background: linear-gradient(90deg, #ff00ff, #00f5ff, #ff00ff, #00f5ff);
-    background-size: 200% 100%;
-    animation: spectrumMove 3s linear infinite;
-    margin-top: 2rem;
-}
-
-@keyframes spectrumMove {
-    0% { background-position: 0% 0%; }
-    100% { background-position: 200% 0%; }
+.repertoire_memo {
+  color: #ccc;
+  font-size: 0.9rem;
+  line-height: 1.4;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 /* レスポンシブデザイン */
-@media (max-width: 768px) {
-    .main-container {
-        padding: 1rem;
-    }
+@media (max-width: 1070px) {
+  .main_container {
+    padding: 2rem 0 2rem;
+    padding-left: 5rem;
+    padding-right: 5rem;
+  }
+}
 
-    .user-info {
-        flex-direction: column;
-        text-align: center;
-    }
+@media (max-width: 909px) {
+  .main_container {
+    padding: 1rem;
+  }
 
-    .user-stats {
-        justify-content: center;
-    }
+  .user_info {
+    flex-direction: column;
+    text-align: center;
+  }
 
-    .tab-nav {
-        flex-direction: column;
-    }
+  .user_stats {
+    justify-content: center;
+  }
 
-    .practice-header {
-        flex-direction: column;
-        align-items: flex-start;
-    }
+  .tab_nav {
+    flex-direction: column;
+  }
 
-    .practice-meta {
-        flex-direction: column;
-        gap: 0.5rem;
-    }
+  .practice_header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 
-    .practice-media {
-        flex-direction: column;
-    }
+  .practice_meta {
+    gap: 0.5rem;
+  }
 
-    .result-images {
-        justify-content: center;
-    }
+  .practice_media {
+    flex-direction: column;
+  }
 
-    .repertoire-grid {
-        grid-template-columns: 1fr;
-    }
+  .result_images {
+    justify-content: center;
+  }
+
+  .repertoire_grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 460px) {
+  .user_stats {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 0;
+  }
+
+  .add_buttons{
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .practice_add_button, .repertoire_add_button {
+    width: 100%;
+    padding: 8px 15px;
+  }
 }
