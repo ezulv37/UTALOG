@@ -1,18 +1,17 @@
-<section class="account_container">
-  <div class="accountInformation">
-    <div class="accountInformation_header">
-      <h3 class="accountInformation_header_title">プロフィール</h3>
+<div class="setting_container">
+  <div class="account_container">
+    <div class="account_information_header">
+      <h3 class="account_information_header_title">プロフィール</h3>
       <%= link_to '編集', edit_user_profile_path, class: 'account_edit_btn' %>
     </div>
-
     <table>
       <tr>
         <th>アイコン画像</th>
         <td>
           <% if @user.image.attached? %>
-            <%= image_tag @user.image, size: "80x80" %>
+            <%= image_tag @user.image, size: "80x80", class:"user-avatar" %>
           <% else %>
-            <%= image_tag 'default_icon.png', size: "80x80" %>
+            <%= image_tag 'default_icon.png', size: "80x80", class:"user-avatar" %>
           <% end %>
         </td>
       </tr>
@@ -22,4 +21,4 @@
       </tr>
     </table>
   </div>
-</section>
+</div>
