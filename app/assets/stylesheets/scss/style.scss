@@ -1,40 +1,35 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 25%, #16213e  50%, #0f3460 100%);
-    background-attachment: fixed;
-    color: #ffffff;
-    min-height: 100vh;
-    overflow-x: hidden;
-    overflow-y: auto;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 25%, #16213e  50%, #0f3460 100%);
+  background-attachment: fixed;
+  color: #ffffff;
+  min-height: 100vh;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
 a {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 li{
   list-style: none;
 }
 
-/* スムーズスクロール */
-html {
-    scroll-behavior: smooth;
+.notice_alert_container{
+  background-color: #025485;
+  padding: 8px;
+  color: #ccc;
 }
 
-/* ネオンエフェクト */
-.neon-border {
-    border: 2px solid #00f5ff;
-    box-shadow: 0 0 10px #00f5ff, inset 0 0 10px #00f5ff;
-    animation: neonPulse 2s infinite alternate;
-}
-
-@keyframes neonPulse {
-    from { box-shadow: 0 0 10px #00f5ff, inset 0 0 10px #00f5ff; }
-    to { box-shadow: 0 0 20px #00f5ff, inset 0 0 15px #00f5ff; }
+.error_message_container{
+  margin-bottom: 25px;
+  text-align: center;
+  color: #ff7700;
 }
