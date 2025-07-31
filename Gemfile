@@ -56,3 +56,7 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'devise'
+
+gem 'google-apis-youtube_v3', '~> 0.53.0'
+
+gem 'dotenv-rails', groups: [:development, :test]
