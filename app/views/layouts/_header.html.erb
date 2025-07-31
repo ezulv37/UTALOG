@@ -9,9 +9,9 @@
     <nav class="nav_item">
       <% if user_signed_in? %>
         <% if current_user.image.attached? %>
-          <%= image_tag current_user.image, size: "45x45", class: "icon_image" %>
+          <%= image_tag current_user.image, size: "45x45", class: "header_icon_image" %>
         <% else %>
-          <%= image_tag 'default_icon.png', size: "45x45", class: "icon_image" %>
+          <%= image_tag 'default_icon.png', size: "45x45", class: "header_icon_image" %>
         <% end %>
 
         <div class="dropdown">
@@ -22,15 +22,15 @@
           <div class="dropdown_menu">
             <%= link_to 'マイページ', mypage_path, class: 'dropdown_item' %><br>
             <%= link_to 'プロフィール', user_profile_path, class: 'dropdown_item' %><br>
-            <%= link_to 'アカウント設定', user_account_path, class: 'dropdown_item' %><br>
+            <%= link_to 'アカウント', user_account_path, class: 'dropdown_item' %><br>
             <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'dropdown_item signout_link' %>
           </div>
         </div>
 
       <% else %>
         <div class="header_btns">
-          <%= link_to 'ログイン', new_user_session_path, class:'signin_link1' %>
-          <%= link_to '新規登録', new_user_registration_path, class:'signup_link1' %>
+          <%= link_to 'ログイン', new_user_session_path, class:'signin_link' %>
+          <%= link_to '新規登録', new_user_registration_path, class:'signup_link' %>
         </div>
       <% end %>
     </nav>
