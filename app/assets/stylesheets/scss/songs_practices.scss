@@ -1,0 +1,75 @@
+.song_practice_tittle{
+  padding-top: 40px;
+}
+
+/* フォーム要素 */
+.form_group {
+  margin-bottom: 1.5rem;
+}
+
+.form_label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #00f5ff;
+  font-weight: bold;
+}
+
+.form_input {
+  width: 100%;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(0, 245, 255, 0.3);
+  border-radius: 10px;
+  color: white;
+  font-size: 1rem;
+}
+
+.form_input:focus {
+  outline: none;
+  border-color: #00f5ff;
+  box-shadow: 0 0 10px rgba(0, 245, 255, 0.3);
+}
+
+.form_input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.radiobtn_genre_name{
+  font-weight: unset;
+}
+
+/* ボタン */
+.actions {
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.practice_savebtn, .song_savebtn {
+  background: linear-gradient(45deg, #00f5ff, #0066ff);
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 20px;
+  margin: 5px;
+  transition: all 0.3s ease;
+}
+
+.practice_cancelbtn, .song_cancelbtn {
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  text-decoration: none;
+  padding: 12px 25px;
+  border-radius: 20px;
+  display: inline-block;
+  margin: 5px;
+  transition: all 0.3s ease;
+}
+
+.practice_savebtn:hover,
+.song_savebtn:hover,
+.practice_cancelbtn:hover,
+.song_cancelbtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 245, 255, 0.3);
+}
