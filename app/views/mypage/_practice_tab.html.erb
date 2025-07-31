@@ -2,9 +2,11 @@
   <!-- 検索フォーム：練習ログ -->
   <div class="search_form_container">
     <%= form_with url: mypage_path, method: :get, local: true do |f| %>
-      <%= f.text_field :practice_q, placeholder: "曲名・アーティスト名で検索", value: params[:practice_q], class: "search_input" %>
-      <%= f.hidden_field :tab, value: "practice" %>
-      <%= f.submit "検索", class: "search_button" %>
+      <div class="search_input_container">
+        <%= f.text_field :practice_q, placeholder: "曲名・アーティスト名で検索", value: params[:practice_q], class: "search_input" %>
+        <%= f.hidden_field :tab, value: "practice" %>
+        <%= f.submit "検索", class: "search_button" %>
+      </div>
     <% end %>
   </div>
   <!-- メインコンテンツ：練習ログ -->
