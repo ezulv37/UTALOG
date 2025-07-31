@@ -1,38 +1,36 @@
 <%= render "shared/error", obj: practice %>
-<section>
-  <%= form_with model: practice, local: true, html: { class: "card" } do |f| %>
-    <div class="form_group">
-      <p class="form_label"><%= f.label :title ,"曲名" %></p>
-      <%= f.text_field :title, class:"form_input" %>
-    </div>
-    <div class="form_group">
-      <p class="form_label"><%= f.label :artist ,"アーティスト" %></p>
-      <%= f.text_field :artist, class:"form_input" %>
-    </div>
-    <div class="form_group">
-      <p class="form_label"><%= f.label :key, "キー" %></p>
-      <%= f.number_field :key, placeholder: "原曲キーを0とする", class:"form_input" %>
-    </div>
-    <div class="form_group">
-      <p class="form_label"><%= f.label :score, "スコア" %></p>
-      <%= f.number_field :score, class:"form_input" %>
-    </div>
-    <div class="form_group">
-      <p class="form_label"><%= f.label :result_image1, "結果画像1" %></p>
-      <%= f.file_field :result_image1, class:"form_input" %>
-    </div>
-    <div class="form_group">
-      <p class="form_label"><%= f.label :result_image2, "結果画像2" %></p>
-      <%= f.file_field :result_image2, class:"form_input" %>
-    </div>
+<%= form_with model: practice, local: true, html: { class: "card" } do |f| %>
+  <div class="form_group">
+    <p class="form_label"><%= f.label :title ,"曲名" %></p>
+    <%= f.text_field :title, class:"form_input" %>
+  </div>
+  <div class="form_group">
+    <p class="form_label"><%= f.label :artist ,"アーティスト" %></p>
+    <%= f.text_field :artist, class:"form_input" %>
+  </div>
+  <div class="form_group">
+    <p class="form_label"><%= f.label :key, "キー" %></p>
+    <%= f.number_field :key, placeholder: "原曲キーを0とする", class:"form_input" %>
+  </div>
+  <div class="form_group">
+    <p class="form_label"><%= f.label :score, "スコア" %></p>
+    <%= f.number_field :score, class:"form_input" %>
+  </div>
+  <div class="form_group">
+    <p class="form_label"><%= f.label :result_image1, "結果画像1" %></p>
+    <%= f.file_field :result_image1, class:"form_input" %>
+  </div>
+  <div class="form_group">
+    <p class="form_label"><%= f.label :result_image2, "結果画像2" %></p>
+    <%= f.file_field :result_image2, class:"form_input" %>
+  </div>
 
-    <div class="form_group">
-      <p class="form_label"><%= f.label :comment, "練習メモ" %></p>
-      <%= f.text_area :comment, class:"form_input" %>
-    </div>
-    <div class="practice_new_edit_actions">
-      <%= f.submit "保存", class:"btnA"%>
-      <%= link_to "キャンセル", mypage_path, class:"btnB" %>
-    </div>
-  <% end %>
-</section>
+  <div class="form_group">
+    <p class="form_label"><%= f.label :comment, "練習メモ" %></p>
+    <%= f.text_area :comment, class:"form_input" %>
+  </div>
+  <div class="actions">
+    <%= f.submit "保存", class:"practice_savebtn"%>
+    <%= link_to "キャンセル", mypage_path, class:"practice_cancelbtn" %>
+  </div>
+<% end %>
