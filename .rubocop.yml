@@ -1,0 +1,23 @@
+plugins:
+  - rubocop-airbnb
+  - rubocop-rails
+
+# Rails用に最適化
+Rails:
+  Enabled: true
+
+# 文字数の上限を８０文字から変更
+Layout/LineLength:
+  Max: 130
+
+#rubocopで検証したくないフォルダを指定
+AllCops:
+  NewCops: enable
+  Exclude:
+    - 'db/**/*'
+    - 'config/**/*'
+    - 'node_modules/**/*'
+    - 'bin/*'
+    - '**/Gemfile'
+    - 'vendor/**/*'
+    - '.git/**/*'
