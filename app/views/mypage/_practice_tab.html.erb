@@ -49,7 +49,7 @@
             <%= link_to '編集', edit_practice_path(practice.id), class:"practice_edit_button" %>
             <%= link_to '削除', practice_path(practice.id), method: :delete, data: { confirm: "本当に削除しますか？" }, class:"practice_delete_button" %>
           </div>
-          <div class="practice_date"><%= practice.created_at.to_s(:datetime_jp) %></div>
+          <div class="practice_date"><%= practice.created_at.to_formatted_s(:datetime_jp) %></div>
         </div>
       </li>
     <% end %>

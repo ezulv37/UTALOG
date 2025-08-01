@@ -17,7 +17,7 @@
               <% end %>
               <p class= "log_user_name"><%= user.name %></p>
             </div>
-            <p class= "log_practice_date"><%= practice.created_at.to_s(:datetime_jp) %></p>
+            <p class= "log_practice_date"><%= practice.created_at.to_formatted_s(:datetime_jp) %></p>
           </div>
           <div class="log_practice_info">
             <div class="log_song_title"><%= practice.title %></div>
