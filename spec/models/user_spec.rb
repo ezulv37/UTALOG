@@ -54,4 +54,20 @@ RSpec.describe User, type: :model do
       expect(@user.image.attached?).to be false
     end
   end
+
+  describe 'ユーザーのアソシエーションに関するテスト' do
+    before do
+      @user = FactoryBot.create(:user)
+    end
+
+    it 'songsとのアソシエーションが正しく設定されていること' do
+      song = FactoryBot.create(:song, user: @user)
+      expect(@user.songs).to include song
+    end
+
+    it 'practicesとのアソシエーションが正しく設定されていること' do
+      practice = FactoryBot.create(:practice, user: @user)
+      expect(@user.practices).to include practice
+    end
+  end
 end
