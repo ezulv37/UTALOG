@@ -9,13 +9,13 @@ class Users::RegistrationsController < Devise::RegistrationsController
     super
   end
 
-  # POST /resource
-  def create
+  # GET /resource/edit
+  def edit
     super
   end
 
-  # GET /resource/edit
-  def edit
+  # POST /resource
+  def create
     super
   end
 

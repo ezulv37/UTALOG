@@ -5,6 +5,10 @@ class PracticesController < ApplicationController
     @practice = current_user.practices.new
   end
 
+  def edit
+    @practice = current_user.practices.find(params[:id])
+  end
+
   def create
     @practice = current_user.practices.new(practice_params)
 
@@ -14,10 +18,6 @@ class PracticesController < ApplicationController
     else
       render :new
     end
-  end
-
-  def edit
-    @practice = current_user.practices.find(params[:id])
   end
 
   def update

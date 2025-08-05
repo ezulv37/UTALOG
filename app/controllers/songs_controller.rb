@@ -5,6 +5,10 @@ class SongsController < ApplicationController
     @song = current_user.songs.new
   end
 
+  def edit
+    @song = current_user.songs.find(params[:id])
+  end
+
   def create
     @song = current_user.songs.new(song_params)
     if @song.save
@@ -13,10 +17,6 @@ class SongsController < ApplicationController
     else
       render :new
     end
-  end
-
-  def edit
-    @song = current_user.songs.find(params[:id])
   end
 
   def update
