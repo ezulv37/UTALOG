@@ -1,6 +1,7 @@
 <div class="setting_container">
   <div class="account_information">
     <h2 class="account_information_header_title">プロフィール編集</h2>
+    <%= render "users/shared/error_messages", resource: @user %>
     <%= form_with model: @user, url: user_profile_path, method: :patch, local: true, html: { multipart: true } do |f| %>
       <div class="field">
         <%= f.label :image, "アイコン画像", class:"account_edit_avatar" %>
