@@ -53,18 +53,16 @@ RSpec.describe User, type: :model do
   end
 
   describe 'ユーザーのアソシエーションに関するテスト' do
-    before do
-      @user = FactoryBot.create(:user)
-    end
+    let(:user) { saved_user }
 
     it 'songsとのアソシエーションが正しく設定されていること' do
-      song = FactoryBot.create(:song, user: @user)
-      expect(@user.songs).to include song
+      song = create(:song, user: user)
+      expect(user.songs).to include song
     end
 
     it 'practicesとのアソシエーションが正しく設定されていること' do
-      practice = FactoryBot.create(:practice, user: @user)
-      expect(@user.practices).to include practice
+      practice = create(:practice, user: user)
+      expect(user.practices).to include practice
     end
   end
 end
