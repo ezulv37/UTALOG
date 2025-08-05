@@ -36,23 +36,19 @@ RSpec.describe User, type: :model do
   end
 
   describe '画像添付のテスト' do
-    before do
-      @user = FactoryBot.build(:user)
-    end
-
     it '画像を添付できること' do
-      @user.image.attach(
+      user.image.attach(
         io: File.open(Rails.root.join('spec/fixtures/images/test_icon_image.png').open),
         filename: 'test_icon_image.png',
         content_type: 'image/png'
       )
 
-      expect(@user.image).to be_attached
+      expect(user.image).to be_attached
     end
 
     it '画像が添付されていない場合でも有効であること' do
-      expect(@user).to be_valid
-      expect(@user.image.attached?).to be false
+      expect(user.image).not_to be_attached
+      expect(user).to be_valid
     end
   end
 
