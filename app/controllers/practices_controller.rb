@@ -13,7 +13,7 @@ class PracticesController < ApplicationController
     @practice = current_user.practices.new(practice_params)
 
     if @practice.save
-      flash[:notice] = "練習ログを新規登録しました"
+      flash[:notice] = I18n.t("flash.practice.create")
       redirect_to mypage_path
     else
       render :new
@@ -23,7 +23,7 @@ class PracticesController < ApplicationController
   def update
     @practice = current_user.practices.find(params[:id])
     if @practice.update(practice_params)
-      flash[:notice] = "練習ログを更新しました"
+      flash[:notice] = I18n.t("flash.practice.update")
       redirect_to mypage_path
     else
       render :edit
@@ -33,7 +33,7 @@ class PracticesController < ApplicationController
   def destroy
     @practice = Practice.find(params[:id])
     @practice.destroy
-    flash[:notice] = "練習ログを削除しました"
+    flash[:notice] = I18n.t("flash.practice.destroy")
     redirect_to mypage_path
   end
 

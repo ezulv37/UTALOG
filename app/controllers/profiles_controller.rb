@@ -18,7 +18,7 @@ class ProfilesController < ApplicationController
     end
 
     if @user.update(profile_params)
-      flash[:notice] =  "プロフィールを更新しました"
+      flash[:notice] =  I18n.t("flash.profile.update")
       redirect_to user_profile_path
     else
       render :edit, alert: "更新に失敗しました"

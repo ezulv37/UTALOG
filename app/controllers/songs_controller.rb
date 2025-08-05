@@ -12,7 +12,7 @@ class SongsController < ApplicationController
   def create
     @song = current_user.songs.new(song_params)
     if @song.save
-      flash[:notice] = "レパートリー楽曲を新規登録しました"
+      flash[:notice] = I18n.t("flash.song.create")
       redirect_to mypage_path(tab: 'repertoire')
     else
       render :new
@@ -22,7 +22,7 @@ class SongsController < ApplicationController
   def update
     @song = current_user.songs.find(params[:id])
     if @song.update(song_params)
-      flash[:notice] = "レパートリー楽曲を更新しました"
+      flash[:notice] = I18n.t("flash.song.update")
       redirect_to mypage_path(tab: 'repertoire')
     else
       render :edit
@@ -32,7 +32,7 @@ class SongsController < ApplicationController
   def destroy
     @song = Song.find(params[:id])
     @song.destroy
-    flash[:notice] = "レパートリー楽曲を削除しました"
+    flash[:notice] = I18n.t("flash.song.destroy")
     redirect_to mypage_path(tab: 'repertoire')
   end
 
