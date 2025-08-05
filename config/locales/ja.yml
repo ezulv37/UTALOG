@@ -28,6 +28,20 @@ ja:
         result_image1: 結果画像1
         result_image2: 結果画像2
 
+  flash:
+    practice:
+      create: "練習ログを新規登録しました"
+      update: "練習ログを更新しました"
+      destroy: "練習ログを削除しました"
+
+    profile:
+      update: "プロフィールを更新しました"
+
+    song:
+      create: "レパートリー楽曲を新規登録しました"
+      update: "レパートリー楽曲を更新しました"
+      destroy: "レパートリー楽曲を削除しました"
+
   errors:
     format: "%{attribute}%{message}"
     messages:
