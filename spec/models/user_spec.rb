@@ -4,13 +4,13 @@ RSpec.describe User, type: :model do
   let(:user) { build(:user) }
   let(:saved_user) { create(:user) }
 
-  describe 'ユーザーのバリデーションに関するテスト' do
+  describe 'userモデルのバリデーションに関するテスト' do
     it '名前、メールアドレス、パスワードがある場合は有効' do
       expect(user).to be_valid
     end
 
     it '名前がない場合は無効' do
-      user.name = ' '
+      user.name = nil
       expect(user).to be_invalid
     end
 
@@ -25,7 +25,7 @@ RSpec.describe User, type: :model do
     end
 
     it 'パスワードがない場合は無効' do
-      user.password = ' '
+      user.password = nil
       expect(user).to be_invalid
     end
 
@@ -52,17 +52,15 @@ RSpec.describe User, type: :model do
     end
   end
 
-  describe 'ユーザーのアソシエーションに関するテスト' do
-    let(:user) { saved_user }
-
-    it 'songsとのアソシエーションが正しく設定されていること' do
-      song = create(:song, user: user)
-      expect(user.songs).to include song
+  describe 'userモデルのアソシエーションに関するテスト' do
+    it 'songモデルとのアソシエーションが正しく設定されていること' do
+      song = create(:song, user: saved_user)
+      expect(saved_user.songs).to include song
     end
 
-    it 'practicesとのアソシエーションが正しく設定されていること' do
-      practice = create(:practice, user: user)
-      expect(user.practices).to include practice
+    it 'practiceモデルとのアソシエーションが正しく設定されていること' do
+      practice = create(:practice, user: saved_user)
+      expect(saved_user.practices).to include practice
     end
   end
 end
