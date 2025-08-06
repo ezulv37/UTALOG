@@ -6,7 +6,7 @@ RSpec.describe Song, type: :model do
   let(:saved_song) { create(:song, user: user) }
 
   describe 'songモデルのバリデーションに関するテスト' do
-    it '楽曲タイトルとアーティスト名がある場合は有効' do
+    it '楽曲タイトル、アーティスト名、ジャンルがある場合は有効' do
       expect(song).to be_valid
     end
 
@@ -17,6 +17,11 @@ RSpec.describe Song, type: :model do
 
     it 'アーティスト名がない場合は無効' do
       song.artist = nil
+      expect(song).to be_invalid
+    end
+
+    it 'ジャンルが選択されていない場合は無効' do
+      song.genre = nil
       expect(song).to be_invalid
     end
 
