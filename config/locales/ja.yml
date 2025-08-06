@@ -16,6 +16,7 @@ ja:
       song:
         title: 曲名
         artist: アーティスト名
+        genre: ジャンル
         key: キー
         memo: メモ
 
