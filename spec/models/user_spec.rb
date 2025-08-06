@@ -38,7 +38,7 @@ RSpec.describe User, type: :model do
   describe '画像添付のテスト' do
     it '画像を添付できること' do
       user.image.attach(
-        io: File.open(Rails.root.join('spec/fixtures/images/test_icon_image.png').open),
+        io: Rails.root.join('spec/fixtures/images/test_icon_image.png').open,
         filename: 'test_icon_image.png',
         content_type: 'image/png'
       )
