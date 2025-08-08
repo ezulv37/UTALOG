@@ -47,7 +47,7 @@ RSpec.describe User, type: :model do
     end
 
     it '画像が添付されていない場合でも有効であること' do
-      expect(user.image).not_to be_attached
+      user.image = nil
       expect(user).to be_valid
     end
   end
