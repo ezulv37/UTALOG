@@ -1,4 +1,3 @@
-# spec/models/practice_spec.rb
 require 'rails_helper'
 
 RSpec.describe Practice, type: :model do
