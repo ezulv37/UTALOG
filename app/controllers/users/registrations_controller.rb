@@ -18,7 +18,13 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # PUT /resource
   def update
-    super
+    super do |resource|
+      if resource.errors.empty? && params[:user][:password].present?
+        sign_out(resource)
+        flash[:notice] = I18n.t("devise.passwords.updated")
+        redirect_to root_path and return
+      end
+    end
   end
 
   # DELETE /resource
