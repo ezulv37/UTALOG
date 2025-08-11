@@ -19,6 +19,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # PUT /resource
   def update
     super do |resource|
+      if params[:user][:password].blank? || params[:user][:password_confirmation].blank?
+        return render :edit
+      end
+
       if resource.errors.empty? && params[:user][:password].present?
         sign_out(resource)
         flash[:notice] = I18n.t("devise.passwords.updated")
