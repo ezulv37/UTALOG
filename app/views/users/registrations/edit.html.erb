@@ -30,7 +30,7 @@
         <%= f.submit "保存", class:"account_edit_savebtn" %>
       </div>
     <% end %>
-    <%= link_to "キャンセル", :back, class:"account_edit_cancelbtn" %>
+    <%= link_to "キャンセル", user_account_path, class:"account_edit_cancelbtn" %>
     <%= link_to "アカウントを削除", registration_path(resource_name), data: { confirm: "本当に削除しますか？", turbo_confirm: "本当に削除しますか？" }, method: :delete, class:"account_delete-btn" %>
   </div>
 </div>
