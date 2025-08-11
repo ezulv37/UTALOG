@@ -11,10 +11,6 @@
       <div class="field">
         <%= f.label :password, "新しいパスワード" %>
         <%= f.password_field :password, autocomplete: "new-password", placeholder:"新しいパスワードを入力", class: "account_item_inputform" %>
-        <% if @minimum_password_length %>
-          <br />
-          <em>最低<%= @minimum_password_length %>文字以上で入力してください</em>
-        <% end %>
       </div>
 
       <div class="field">
