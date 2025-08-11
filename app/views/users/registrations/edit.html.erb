@@ -26,6 +26,11 @@
         <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder:"新しいパスワードを再入力", class: "account_item_inputform" %>
       </div>
 
+      <div class="field">
+        <%= f.label :current_password, "現在のパスワード" %>
+        <%= f.password_field :current_password, autocomplete: "current-password", placeholder: "現在のパスワードを入力", class: "account_item_inputform" %>
+      </div>
+
       <div class="actions">
         <%= f.submit "保存", class:"account_edit_savebtn" %>
       </div>
