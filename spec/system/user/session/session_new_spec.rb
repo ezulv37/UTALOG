@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe 'ユーザーログイン', type: :system do
-  let!(:user) { create(:user, name: 'テストユーザー', email: 'test@example.com', password: 'password') }
+  let!(:user) { create(:user) }
 
   before do
     visit new_user_session_path
@@ -9,12 +9,12 @@ RSpec.describe 'ユーザーログイン', type: :system do
 
   describe 'ログインが成功する場合' do
     it '正しいメールアドレスとパスワードでログインできる' do
-      fill_in 'メールアドレス', with: 'test@example.com'
-      fill_in 'パスワード', with: 'password'
+      fill_in 'メールアドレス', with: user.email
+      fill_in 'パスワード', with: user.password
       click_button 'ログイン'
       expect(page).to have_current_path(mypage_path)
       expect(page).to have_content 'ログインしました'
-      expect(page).to have_content 'テストユーザー'
+      expect(page).to have_content user.name
     end
   end
 
@@ -26,13 +26,13 @@ RSpec.describe 'ユーザーログイン', type: :system do
 
     it '存在しないメールアドレスの場合エラーが出る' do
       fill_in 'メールアドレス', with: 'wrong@example.com'
-      fill_in 'パスワード', with: 'password'
+      fill_in 'パスワード', with: user.password
       click_button 'ログイン'
       expect(page).to have_content 'メールアドレスまたはパスワードが正しくありません'
     end
 
     it 'パスワードが間違っている場合エラーが出る' do
-      fill_in 'メールアドレス', with: 'test@example.com'
+      fill_in 'メールアドレス', with: user.email
       fill_in 'パスワード', with: 'wrongpassword'
       click_button 'ログイン'
       expect(page).to have_content 'メールアドレスまたはパスワードが正しくありません'
