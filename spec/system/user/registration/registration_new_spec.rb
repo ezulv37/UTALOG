@@ -29,7 +29,7 @@ RSpec.describe 'ユーザー新規登録', type: :system do
     end
 
     it '登録済みのメールアドレスを使用するとエラーが出る' do
-      fill_in 'メールアドレス', with: 'registered@example.com'
+      fill_in 'メールアドレス', with: user.email
       click_button '新しいアカウントを作成'
       expect(page).to have_content 'メールアドレスはすでに使用されています'
     end
