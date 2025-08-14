@@ -7,6 +7,7 @@ abort("The Rails environment is running in production mode!") if Rails.env.produ
 # Uncomment the line below in case you have `--require rails_helper` in the `.rspec` file
 # that will avoid rails generators crashing because migrations haven't been run yet
 # return unless Rails.env.test?
+require "active_storage/engine"
 require 'rspec/rails'
 require 'capybara/rspec'
 require 'database_cleaner/active_record'
@@ -26,6 +27,7 @@ require 'database_cleaner/active_record'
 # require only the support files necessary.
 #
 # Rails.root.glob('spec/support/**/*.rb').sort_by(&:to_s).each { |f| require f }
+Rails.root.glob('spec/support/**/*.rb').sort.each { |f| require f }
 
 # Ensures that the test database schema matches the current schema file.
 # If there are pending migrations it will invoke `db:test:prepare` to
@@ -36,11 +38,12 @@ begin
 rescue ActiveRecord::PendingMigrationError => e
   abort e.to_s.strip
 end
+
+# Pumaサーバーを1スレッドで起動（DB接続の衝突回避用）
+Capybara.server = :puma, { Silent: true, Threads: "1:1" }
+
 RSpec.configure do |config|
-  # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
-  config.fixture_paths = [
-    Rails.root.join('spec/fixtures')
-  ]
+  config.fixture_path = Rails.root.join('spec/fixtures')
 
   # If you're not using ActiveRecord, or you'd prefer not to run each of your
   # examples within a transaction, remove the following line or assign false
@@ -72,10 +75,6 @@ RSpec.configure do |config|
   # config.filter_gems_from_backtrace("gem name")
   config.include FactoryBot::Syntax::Methods
 
-  config.before(:each, type: :system) do
-    driven_by :selenium_chrome_headless
-  end
-
   config.use_transactional_fixtures = true
 
   config.before(:suite) do
@@ -97,4 +96,16 @@ RSpec.configure do |config|
   config.after(:each) do
     DatabaseCleaner.clean  # 各テスト後にクリーンアップ
   end
+
+  config.before(:each, type: :system) do
+    driven_by :rack_test
+    Rails.application.routes.default_url_options[:host] = "www.example.com"
+  end
+
+  config.before(:each, type: :system, js: true) do
+    driven_by :selenium_chrome_headless
+    Rails.application.routes.default_url_options[:host] = "www.example.com"
+  end
+
+    config.include LoginHelper, type: :system
 end
