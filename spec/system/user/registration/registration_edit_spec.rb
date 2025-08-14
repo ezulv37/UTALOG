@@ -4,11 +4,7 @@ RSpec.describe 'アカウント編集', type: :system do
   let(:user) { create(:user) }
 
   before do
-    visit new_user_session_path
-    fill_in 'メールアドレス', with: user.email
-    fill_in 'パスワード', with: user.password
-    click_button 'ログイン'
-    expect(page).to have_content(user.name)
+    login_as_user(user)
     visit edit_user_registration_path
   end
 
@@ -69,7 +65,7 @@ RSpec.describe 'アカウント編集', type: :system do
       fill_in 'パスワード確認', with: ''
       fill_in '現在のパスワード', with: user.password
       click_button '保存'
-      expect(page).to have_current_path(edit_user_registration_path)
+      expect(page).to have_current_path(user_registration_path)
     end
   end
 
@@ -81,7 +77,7 @@ RSpec.describe 'アカウント編集', type: :system do
   end
 
   describe "アカウントを削除する場合" do
-    it 'アカウントを削除=>自動ログアウトしてホームページに遷移、ヘッダーにサインインメニューが表示される' do
+    it 'アカウントを削除=>自動ログアウトしてホームページに遷移、ヘッダーにサインインメニューが表示される', js: true do
       page.accept_confirm do
         click_on 'アカウントを削除'
       end
