@@ -8,6 +8,8 @@
 
     <nav class="nav_item">
       <% if user_signed_in? %>
+        <%= link_to '練習する', new_practice_path, class:'header_new_practice_link-a' %>
+        <%= link_to '＋', new_practice_path, size: "45x45", class:'header_new_practice_link-b' %>
         <% if current_user.image.attached? %>
           <%= image_tag current_user.image, size: "45x45", class: "header_icon_image" %>
         <% else %>
