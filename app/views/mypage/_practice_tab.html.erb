@@ -19,21 +19,25 @@
         </div>
         <div class="practice_meta">
           <div class="meta_item">キー: <%= practice.key_display %></div>
-          <div class="meta_item score_item"><%= practice.score %>点</div>
+          <% if practice.score.present? %>
+            <div class="meta_item score_item">スコア: <%= practice.score %>点</div>
+          <% else %>
+            <div class="meta_item score_item">スコア: なし</div>
+          <% end %>
         </div>
         <div class="result_images">
           <div class="result_image">
             <% if practice.result_image1&.attached? %>
               <%= image_tag practice.result_image1, size: "120x70", class:"popup" %>
             <% else %>
-              📊 結果画像1
+              採点結果画像①
             <% end %>
           </div>
           <div class="result_image">
             <% if practice.result_image2&.attached? %>
               <%= image_tag practice.result_image2, size: "120x70", class:"popup" %>
             <% else %>
-              📈 結果画像2
+              採点結果画像②
             <% end %>
           </div>
           <!-- モーダル -->
