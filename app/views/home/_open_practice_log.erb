@@ -24,7 +24,11 @@
             <div class="log_song_artist"><%= practice.artist %></div>
             <div class="log_song_metas">
               <span class="log_song_meta">キー: <%= practice.key_display %></span>
-              <span class="log_song_meta">スコア: <%= practice.score %>点</span>
+              <% if practice.score.present? %>
+                <span class="log_song_meta">スコア: <%= practice.score %>点</span>
+              <% else %>
+                <span class="log_song_meta">スコア: なし</span>
+              <% end %>
             </div>
             <div class="log_practice_comment"><%= practice.comment %></div>
           </div>
