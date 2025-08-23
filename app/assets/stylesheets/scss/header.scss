@@ -33,6 +33,10 @@ header {
   object-fit: cover;
 }
 
+.header_username:hover{
+  cursor: pointer;
+}
+
 .signin_link, .signup_link, .header_new_practice_link-a, .header_new_practice_link-b{
   display: inline-block;
   padding: 8px 20px;
