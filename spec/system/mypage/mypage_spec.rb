@@ -24,6 +24,18 @@ RSpec.describe 'マイページ', type: :system do
       end
     end
 
+    it 'アイコンの登録がある場合、登録した画像が表示されている' do
+      visit edit_user_profile_path
+      attach_file 'user_image', Rails.root.join('spec/fixtures/images/user_icon_for_test.png')
+      click_button '保存'
+      visit mypage_path
+
+      within '.user_info' do
+        image_tag = find(".mypage_icon_image")
+        expect(image_tag[:src]).to include('user_icon_for_test.png')
+      end
+    end
+
     it '平均スコア：小数点第2位が四捨五入され、小数点第1位まで表示される' do
       create(:practice, user: user, score: 65)
       create(:practice, user: user, score: 66)
