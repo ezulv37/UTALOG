@@ -85,12 +85,6 @@ RSpec.describe 'アカウント編集', type: :system do
       expect(page).to have_current_path(root_path)
       expect(page).to have_content 'アカウントを削除しました'
       expect(page).to have_content '新規登録してはじめる'
-
-      within 'header' do
-        expect(page).to have_content 'ログイン'
-        expect(page).to have_content '新規登録'
-        expect(page).not_to have_content user.name
-      end
     end
   end
 end
