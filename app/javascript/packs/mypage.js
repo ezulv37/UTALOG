@@ -51,11 +51,9 @@ document.addEventListener("turbolinks:load", () => {
     }
   }
 
-  // 画像以外の部分をクリックしたらモーダルを閉じる
-  window.onclick = function(event) {
-    if (event.target == modal) {
-      modal.style.opacity = "0";
-      modal.style.visibility = "hidden";
-    }
-  }
+  // 閉じるボタンをクリックするとモーダルが閉じる
+  closeSpan.onclick = function() {
+    modal.style.opacity = "0";
+    modal.style.visibility = "hidden";
+  };
 });
