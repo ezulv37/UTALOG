@@ -273,31 +273,6 @@
   transition: all 0.3s ease;
 }
 
-/* モーダルのスタイル */
-.modal {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: fixed;
-  z-index: 1;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: rgba(0,0,0,0.4);
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.5s, visibility 0.5s;
-}
-
-/* モーダルの画像スタイル */
-.modal_content {
-  display: block;
-  width: 80%;
-  max-width: 700px;
-}
-
 .practice-footer {
   display: flex;
   justify-content: end;
@@ -342,6 +317,47 @@
   font-size: 0.9rem;
   display: flex;
   justify-content: end;
+}
+
+/* モーダルのスタイル */
+.modal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  position: fixed;
+  z-index: 1;
+  padding: 80px 25px 0 25px;
+  top: 0;
+  width: 100%;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.5s, visibility 0.5s;
+}
+
+/* モーダルの画像スタイル */
+.modal_content {
+  display: block;
+  width: 80%;
+  max-width: 700px;
+  max-height: 600px;
+}
+
+/* モーダルの閉じるボタン */
+.close {
+  color: #fff;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  background-color: rgba(255, 255, 255, 0.7);
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+}
+
+.close:hover {
+  background-color: rgba(255, 255, 255, 0.9);
 }
 
 /* レパートリーアイテム */
