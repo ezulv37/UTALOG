@@ -1,5 +1,4 @@
 require 'rails_helper'
-require 'ostruct'
 
 RSpec.describe 'ホームページ', type: :system do
   let(:user1) { create(:user) }
@@ -18,40 +17,6 @@ RSpec.describe 'ホームページ', type: :system do
   let!(:practice2) { create(:practice, user: user2, title: '歌2', artist: 'アーティスト2') }
 
   before do
-    # YouTube API のモック
-    youtube_double = double('youtube_service')
-    allow(Rails.application.config).to receive(:youtube_service).and_return(youtube_double)
-
-    # デフォルト検索（ページ読み込み時）
-    allow(youtube_double).to receive(:list_searches).with(
-      'snippet',
-      hash_including(q: '歌唱 テクニック')
-    ).and_return(
-      OpenStruct.new(
-        items: [
-          OpenStruct.new(
-            id: OpenStruct.new(kind: 'youtube#video', video_id: 'default123'),
-            snippet: OpenStruct.new(title: 'デフォルト動画', thumbnails: OpenStruct.new(default: OpenStruct.new(url: 'https://example.com/default.jpg')))
-          )
-        ]
-      )
-    )
-
-    # キーワード検索用
-    allow(youtube_double).to receive(:list_searches).with(
-      'snippet',
-      hash_including(q: 'アーティスト1')
-    ).and_return(
-      OpenStruct.new(
-        items: [
-          OpenStruct.new(
-            id: OpenStruct.new(kind: 'youtube#video', video_id: 'search123'),
-            snippet: OpenStruct.new(title: '検索結果動画', thumbnails: OpenStruct.new(default: OpenStruct.new(url: 'https://example.com/search.jpg')))
-          )
-        ]
-      )
-    )
-
     visit root_path
   end
 
