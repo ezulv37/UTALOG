@@ -67,24 +67,29 @@ RSpec.describe 'マイページ（練習ログタブ）', type: :system, js: tru
     it '結果画像が表示され、クリックでモーダルが開閉する' do
       practices.each do |practice|
         within find("li.practice_item", text: practice.title) do
-          img1 = first('.result_image img')
-          img1.click
+          first('.result_image img').click
         end
 
-        modal = find('.modal_content', visible: true)
-        expect(modal).to be_visible
-        find('body').click
-        expect(modal).not_to be_visible
+        sleep 0.5
+        expect(page.evaluate_script("document.getElementById('modal').style.opacity")).to eq("1")
+        expect(page.evaluate_script("document.getElementById('modal').style.visibility")).to eq("visible")
 
-        within find("li.practice_item", text: practice.title) do
-          img2 = all('.result_image img')[1]
-          img2.click
-        end
+        all('#modal', visible: :all).first
+        all('#close', visible: true).first.click
+        sleep 0.5
+        expect(page.evaluate_script("document.getElementById('modal').style.opacity")).to eq("0")
+        expect(page.evaluate_script("document.getElementById('modal').style.visibility")).to eq("hidden")
 
-        modal = find('.modal_content', visible: true)
-        expect(modal).to be_visible
-        find('body').click
-        expect(modal).not_to be_visible
+        all('.result_image img')[1].click
+        sleep 0.5
+        expect(page.evaluate_script("document.getElementById('modal').style.opacity")).to eq("1")
+        expect(page.evaluate_script("document.getElementById('modal').style.visibility")).to eq("visible")
+
+        all('#modal', visible: :all).first
+        all('#close', visible: true).first.click
+        sleep 0.5
+        expect(page.evaluate_script("document.getElementById('modal').style.opacity")).to eq("0")
+        expect(page.evaluate_script("document.getElementById('modal').style.visibility")).to eq("hidden")
       end
     end
   end
