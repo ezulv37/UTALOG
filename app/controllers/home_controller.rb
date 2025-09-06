@@ -13,20 +13,26 @@ class HomeController < ApplicationController
   private
 
   def search_youtube_videos(query, youtube)
-    response = youtube.list_searches(
-      'snippet',
-      q: query,
-      type: 'video',
-      max_results: 1,
-      video_embeddable: 'true'
-    )
+    # queryごとにユニークなキャッシュキーを作成
+    cache_key = "youtube_search_#{Digest::MD5.hexdigest(query)}"
 
-    response.items.select { |item| item.id.kind == 'youtube#video' }.map do |item|
-      {
-        title: item.snippet.title,
-        video_id: item.id.video_id,
-        thumbnail_url: item.snippet.thumbnails.default.url
-      }
+    # キャッシュがあればそれを返す、なければAPI呼び出し
+    Rails.cache.fetch(cache_key, expires_in: 12.hours) do
+      response = youtube.list_searches(
+        'snippet',
+        q: query,
+        type: 'video',
+        max_results: 1,
+        video_embeddable: 'true'
+      )
+
+      response.items.select { |item| item.id.kind == 'youtube#video' }.map do |item|
+        {
+          title: item.snippet.title,
+          video_id: item.id.video_id,
+          thumbnail_url: item.snippet.thumbnails.default.url
+        }
+      end
     end
   end
 end
