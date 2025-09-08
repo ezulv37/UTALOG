@@ -69,3 +69,7 @@ gem 'dotenv-rails', groups: [:development, :test]
 gem 'rails-i18n'
 
 gem 'concurrent-ruby', '1.3.4'
+
+group :production do
+  gem 'pg'
+end

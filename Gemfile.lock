@@ -189,6 +189,8 @@ GEM
     parser (3.3.9.0)
       ast (~> 2.4.1)
       racc
+    pg (1.6.2-arm64-darwin)
+    pg (1.6.2-x86_64-linux)
     prism (1.4.0)
     public_suffix (6.0.1)
     puma (5.6.9)
@@ -392,6 +394,7 @@ DEPENDENCIES
   google-apis-youtube_v3 (~> 0.53.0)
   jbuilder (~> 2.7)
   listen (~> 3.3)
+  pg
   puma (~> 5.0)
   rack-mini-profiler (~> 2.0)
   rails (>= 6.1.7.10)
