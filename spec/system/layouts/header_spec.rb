@@ -42,7 +42,7 @@ RSpec.describe 'ヘッダー', type: :system do
 
   describe 'ログイン時' do
     before do
-      login_as_user(user)
+      login_via_ui(user)
     end
 
     it 'サイトロゴが表示されている' do
@@ -121,7 +121,7 @@ RSpec.describe 'ヘッダー', type: :system do
 
   describe 'ドロップダウンメニュー(ログイン時)', js: true do
     before do
-      login_as_user(user)
+      login_via_ui(user)
       find('.dropdown').click
     end
 
