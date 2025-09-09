@@ -8,16 +8,18 @@ RSpec.describe 'マイページ（練習ログタブ）', type: :system, js: tru
   let(:practices) { [practice_a, practice_b, practice_c] }
 
   before do
-    login_as_user(user)
+    login_via_ui(user)
     visit mypage_path
   end
 
   describe '練習ログ検索' do
     it '曲名で検索すると、該当の練習ログだけが表示される' do
-      fill_in 'practice_q', with: 'あ'
-      find('.search_button').click
+      within '#practice_log .search_input_container' do
+        fill_in 'practice_q', with: 'あ'
+        click_on '検索'
+      end
 
-      within '.practice_list' do
+      within '#practice_log .practice_list' do
         expect(page).to have_content(practice_a.title)
         expect(page).to have_content(practice_a.artist)
         expect(page).to have_content(practice_c.title)
@@ -27,10 +29,12 @@ RSpec.describe 'マイページ（練習ログタブ）', type: :system, js: tru
     end
 
     it 'アーティスト名で検索すると、該当の練習ログが表示される' do
-      fill_in 'practice_q', with: "B"
-      click_on '検索'
+      within '#practice_log .search_input_container' do
+        fill_in 'practice_q', with: "B"
+        click_on '検索'
+      end
 
-      within '.practice_list' do
+      within '#practice_log .practice_list' do
         expect(page).to have_content(practice_b.title)
         expect(page).to have_content(practice_b.artist)
         expect(page).to have_content(practice_c.title)
@@ -64,32 +68,49 @@ RSpec.describe 'マイページ（練習ログタブ）', type: :system, js: tru
   end
 
   describe '結果画像表示・モーダル' do
-    it '結果画像が表示され、クリックでモーダルが開閉する' do
+    it '1枚目の結果画像が表示され、クリックでモーダルが開閉する' do
       practices.each do |practice|
         within find("li.practice_item", text: practice.title) do
           first('.result_image img').click
         end
 
-        sleep 0.5
-        expect(page.evaluate_script("document.getElementById('modal').style.opacity")).to eq("1")
-        expect(page.evaluate_script("document.getElementById('modal').style.visibility")).to eq("visible")
+        modal = all('.modal', visible: :all).first
 
-        all('#modal', visible: :all).first
-        all('#close', visible: true).first.click
-        sleep 0.5
-        expect(page.evaluate_script("document.getElementById('modal').style.opacity")).to eq("0")
-        expect(page.evaluate_script("document.getElementById('modal').style.visibility")).to eq("hidden")
+        using_wait_time 5 do
+          expect(modal[:style]).to include("opacity: 1")
+          expect(modal[:style]).to include("visibility: visible")
+        end
 
-        all('.result_image img')[1].click
-        sleep 0.5
-        expect(page.evaluate_script("document.getElementById('modal').style.opacity")).to eq("1")
-        expect(page.evaluate_script("document.getElementById('modal').style.visibility")).to eq("visible")
+        all('.modal', visible: :all).first
+        all('.close', visible: true).first.click
 
-        all('#modal', visible: :all).first
-        all('#close', visible: true).first.click
-        sleep 0.5
-        expect(page.evaluate_script("document.getElementById('modal').style.opacity")).to eq("0")
-        expect(page.evaluate_script("document.getElementById('modal').style.visibility")).to eq("hidden")
+        using_wait_time 5 do
+          expect(modal[:style]).to include("opacity: 0")
+          expect(modal[:style]).to include("visibility: hidden")
+        end
+      end
+    end
+
+    it '2枚目の結果画像が表示され、クリックでモーダルが開閉する' do
+      practices.each do |practice|
+        within find("li.practice_item", text: practice.title) do
+          all('.result_image img')[1].click
+        end
+
+        modal = all('.modal', visible: :all).first
+
+        using_wait_time 5 do
+          expect(modal[:style]).to include("opacity: 1")
+          expect(modal[:style]).to include("visibility: visible")
+        end
+
+        all('.modal', visible: :all).first
+        all('.close', visible: true).first.click
+
+        using_wait_time 5 do
+          expect(modal[:style]).to include("opacity: 0")
+          expect(modal[:style]).to include("visibility: hidden")
+        end
       end
     end
   end
