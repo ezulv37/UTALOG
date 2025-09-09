@@ -8,17 +8,19 @@ RSpec.describe 'マイページ（レパートリータブ）', type: :system, j
   let(:songs) { [song_a, song_b, song_c] }
 
   before do
-    login_as_user(user)
+    login_via_ui(user)
     visit mypage_path
     click_on '楽曲レパートリー'
   end
 
   describe 'レパートリー検索' do
     it '曲名で検索すると、該当のレパートリーが表示される' do
-      fill_in 'song_q', with: "あ"
-      click_on '検索'
+      within '#repertoire .search_input_container' do
+        fill_in 'song_q', with: "あ"
+        click_on '検索'
+      end
 
-      within '.repertoire_grid' do
+      within '#repertoire .repertoire_grid' do
         expect(page).to have_content(song_a.title)
         expect(page).to have_content(song_a.artist)
         expect(page).to have_content(song_c.title)
@@ -28,10 +30,12 @@ RSpec.describe 'マイページ（レパートリータブ）', type: :system, j
     end
 
     it 'アーティスト名で検索すると、該当のレパートリーが表示される' do
-      fill_in 'song_q', with: "B"
-      click_on '検索'
+      within '#repertoire .search_input_container' do
+        fill_in 'song_q', with: "B"
+        click_on '検索'
+      end
 
-      within '.repertoire_grid' do
+      within '#repertoire .repertoire_grid' do
         expect(page).to have_content(song_b.title)
         expect(page).to have_content(song_b.artist)
         expect(page).to have_content(song_c.title)
