@@ -108,4 +108,5 @@ RSpec.configure do |config|
   end
 
     config.include LoginHelper, type: :system
+    Capybara.default_max_wait_time = 5
 end
