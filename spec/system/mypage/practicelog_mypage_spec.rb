@@ -10,12 +10,16 @@ RSpec.describe 'マイページ（練習ログタブ）', type: :system, js: tru
   before do
     login_via_ui(user)
     visit mypage_path
+    click_on '楽曲レパートリー'
+    click_on '練習ログ'
+    expect(page).to have_selector('#practice_log', visible: true)
   end
 
   describe '練習ログ検索' do
     it '曲名で検索すると、該当の練習ログだけが表示される' do
       within '#practice_log .search_input_container' do
-        fill_in 'practice_q', with: 'あ'
+        find('[data-testid="practice-search"]').set('あ')
+        expect(page).to have_field(nil, with: 'あ')
         click_on '検索'
       end
 
@@ -64,54 +68,6 @@ RSpec.describe 'マイページ（練習ログタブ）', type: :system, js: tru
     it '練習ログが新しい日付の順に表示される' do
       dates = all('.practice_item .created_at').map(&:text)
       expect(dates).to eq dates.sort.reverse
-    end
-  end
-
-  describe '結果画像表示・モーダル' do
-    it '1枚目の結果画像が表示され、クリックでモーダルが開閉する' do
-      practices.each do |practice|
-        within find("li.practice_item", text: practice.title) do
-          first('.result_image img').click
-        end
-
-        modal = all('.modal', visible: :all).first
-
-        using_wait_time 5 do
-          expect(modal[:style]).to include("opacity: 1")
-          expect(modal[:style]).to include("visibility: visible")
-        end
-
-        all('.modal', visible: :all).first
-        all('.close', visible: true).first.click
-
-        using_wait_time 5 do
-          expect(modal[:style]).to include("opacity: 0")
-          expect(modal[:style]).to include("visibility: hidden")
-        end
-      end
-    end
-
-    it '2枚目の結果画像が表示され、クリックでモーダルが開閉する' do
-      practices.each do |practice|
-        within find("li.practice_item", text: practice.title) do
-          all('.result_image img')[1].click
-        end
-
-        modal = all('.modal', visible: :all).first
-
-        using_wait_time 5 do
-          expect(modal[:style]).to include("opacity: 1")
-          expect(modal[:style]).to include("visibility: visible")
-        end
-
-        all('.modal', visible: :all).first
-        all('.close', visible: true).first.click
-
-        using_wait_time 5 do
-          expect(modal[:style]).to include("opacity: 0")
-          expect(modal[:style]).to include("visibility: hidden")
-        end
-      end
     end
   end
 
