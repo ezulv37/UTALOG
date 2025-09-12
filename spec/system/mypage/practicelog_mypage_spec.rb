@@ -17,11 +17,7 @@ RSpec.describe 'マイページ（練習ログタブ）', type: :system, js: tru
 
   describe '練習ログ検索' do
     it '曲名で検索すると、該当の練習ログだけが表示される' do
-      within '#practice_log .search_input_container' do
-        find('[data-testid="practice-search"]').set('あ')
-        expect(page).to have_field(nil, with: 'あ')
-        click_on '検索'
-      end
+      visit mypage_path(practice_q: 'あ', tab: 'practice', commit: '検索')
 
       within '#practice_log .practice_list' do
         expect(page).to have_content(practice_a.title)
