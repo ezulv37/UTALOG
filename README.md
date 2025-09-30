@@ -78,6 +78,10 @@ YouTube 動画検索や採点結果の画像アップロード、自分用の評
 ### ファイル保存
 - ActiveStorage
 
+### テスト
+- RSpec
+- FactoryBot
+
 ### インフラ・開発環境
 - Heroku（デプロイ）
 - GitHub
