@@ -15,7 +15,6 @@
 
 <img width="1456" height="795" alt="スクリーンショット 2025-09-30 22 46 45" src="https://github.com/user-attachments/assets/52b9224b-0e4c-4f43-b60a-1b898e736aee" />
 
-
 <img width="1453" height="790" alt="スクリーンショット 2025-09-30 22 22 04" src="https://github.com/user-attachments/assets/35b54ccb-12f2-4a26-a1d9-4c80fba19374" />
 
 <img width="1450" height="790" alt="スクリーンショット 2025-09-30 22 34 58" src="https://github.com/user-attachments/assets/ef9dddad-9298-4eda-b7d6-1778b151d794" />
@@ -119,6 +118,7 @@ YouTube 動画検索や採点結果の画像アップロード、自分用の評
 
 ## 8. ER図
 
+<img width="822" height="844" alt="カラオケ練習アプリER図" src="https://github.com/user-attachments/assets/f79b7c42-a3a8-4790-b894-cd93cc1991d8" />
 
 
 ## 9. 今後の展望
