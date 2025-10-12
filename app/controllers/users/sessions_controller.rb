@@ -20,7 +20,7 @@ class Users::SessionsController < Devise::SessionsController
   def guest_log_in
     user = User.guest
     sign_in user
-    redirect_to mypage_path, notice: 'ゲストとしてログインしました'
+    redirect_to mypage_path, notice: t('flash.user.guest_login')
   end
 
   protected
