@@ -31,6 +31,10 @@ ja:
         result_image2: 結果画像2
 
   flash:
+    user:
+      guest_login: "ゲストとしてログインしました"
+      guest_restricted: "ゲストユーザーの編集・削除はできません"
+
     practice:
       create: "練習ログを新規登録しました"
       update: "練習ログを更新しました"
