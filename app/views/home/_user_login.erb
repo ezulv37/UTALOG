@@ -7,6 +7,7 @@
       <button class="homepage_btn homepage_login_btn">
         <%= link_to 'ログインしてはじめる', new_user_session_path, class:'home_signin_link' %>
       </button>
+      <%= link_to "ゲストログイン", users_guest_log_in_path, method: :post, class:'guest_log_in_link' %>
     </div>
   </div>
 </section>
