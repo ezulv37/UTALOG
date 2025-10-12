@@ -36,6 +36,15 @@ class Users::RegistrationsController < Devise::RegistrationsController
     super
   end
 
+  # guest_log_in
+  before_action :ensure_normal_user, only: :edit
+
+  def ensure_normal_user
+    if resource.email == 'guest@guest.mail'
+      redirect_to mypage_path(@user.id), notice: t('flash.user.guest_restricted')
+    end
+  end
+
   protected
 
   def after_sign_up_path_for(resource)
