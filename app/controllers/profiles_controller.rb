@@ -25,6 +25,15 @@ class ProfilesController < ApplicationController
     end
   end
 
+    # guest_log_in
+    before_action :ensure_normal_user, only: :edit
+
+    def ensure_normal_user
+      if current_user.email == 'guest@guest.mail'
+        redirect_to mypage_path(current_user), notice: t('flash.user.guest_restricted')
+      end
+    end
+
   private
   def profile_params
     params.require(:user).permit(:name, :image)
