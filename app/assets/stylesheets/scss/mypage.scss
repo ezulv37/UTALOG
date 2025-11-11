@@ -388,6 +388,11 @@
   margin-bottom: 1rem;
 }
 
+.repertoire_title, .repertoire_artist {
+  white-space: normal;
+  word-wrap: break-word;
+}
+
 .repertoire_details_container{
   display: flex;
   justify-content: space-between;
