@@ -14,6 +14,12 @@
             <span class="genre_name"><%= genre %></span>
           </label>
         <% end %>
+        <div class="favorite_checkbox">
+          <label>
+            <%= check_box_tag 'favorite', '1', params[:favorite] == '1' %>
+            <span class="genre_name"><%= "★" %></span>
+          </label>
+        </div>
       </div>
     <% end %>
   </div>
