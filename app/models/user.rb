@@ -8,6 +8,24 @@ class User < ApplicationRecord
 
   has_many :songs, dependent: :destroy
   has_many :practices, dependent: :destroy
+  has_many :favorites, dependent: :destroy
+  has_many :favorite_songs, through: :favorites, source: :song
+
+  # 引数に渡されたsongがブックマークされているか？
+  def favorite?(song)
+    favorite_songs.include?(song)
+  end
+
+  # song_idを入れてブックマークする
+  def favorite(song)
+    # current_userがブックマークしているsongの配列にsongを入れる
+    favorite_songs << song
+  end
+
+  # 引数のsongのidをもつ、レコードを削除する
+  def unfavorite(song)
+    favorite_songs.destroy(song)
+  end
 
   def self.guest
     find_or_create_by!(email: 'guest@guest.mail') do |user|
