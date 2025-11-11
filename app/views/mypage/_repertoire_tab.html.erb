@@ -21,8 +21,23 @@
   <ul class="repertoire_grid">
     <% songs.each do |song| %>
       <li class="repertoire_item">
-        <div class="repertoire_title"><%= song.title %></div>
-        <div class="repertoire_artist"><%= song.artist %></div>
+        <div class="repertoire_header_container">
+          <div class="repertoire_header_title_artist">
+            <div class="repertoire_title"><%= song.title %></div>
+            <div class="repertoire_artist"><%= song.artist %></div>
+          </div>
+          <div class="repertoire_favorite_button_container">
+            <% if current_user.favorite?(song) %>
+              <%= button_to song_favorite_path(song), method: :delete, class: "favorite_button" do %>
+                ★
+              <% end %>
+            <% else %>
+              <%= button_to song_favorite_path(song), method: :post, class: "favorite_button" do %>
+                ☆
+              <% end %>
+            <% end %>
+          </div>
+        </div>
         <div class="repertoire_details_container">
         <div class="repertoire_details">
             <div class="detail_tag"><%= song.genre %></div>
