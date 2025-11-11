@@ -365,6 +365,8 @@
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 1.5rem;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .repertoire_item {
@@ -373,6 +375,20 @@
   padding: 1.5rem;
   border: 1px solid rgba(0, 245, 255, 0.3);
   transition: all 0.3s ease;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.repertoire_header_container{
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.repertoire_header_title_artist {
+  flex: 1;
+  min-width: 0;
 }
 
 .repertoire_title {
@@ -392,6 +408,22 @@
   white-space: normal;
   word-wrap: break-word;
 }
+
+/* お気に入りボタン */
+.favorite_button {
+  background: none;
+  border: none;
+  font-size: 32px;
+  cursor: pointer;
+  color: #ffcc00;
+  padding: 0;
+  line-height: 1;
+}
+
+.favorite_button:hover {
+  transform: scale(1.2);
+}
+/* */
 
 .repertoire_details_container{
   display: flex;
@@ -495,6 +527,16 @@
 
   .repertoire_grid {
     grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 518px) {
+  .repertoire_grid {
+    display: inline-block;
+  }
+
+  .repertoire_item {
+    margin: 1rem 0;
   }
 }
 
