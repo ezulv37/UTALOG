@@ -24,7 +24,9 @@ Rails.application.routes.draw do
   get 'mypage', to: 'mypage#index'
 
   # Songモデル
-  resources :songs
+  resources :songs do
+    resource :favorite, only: [:create, :destroy]
+  end
 
   # Practiceモデル
   resources :practices
