@@ -22,5 +22,11 @@ class MypageController < ApplicationController
     if params[:genres].present?
       @songs = @songs.where(genre: params[:genres])
     end
+
+    # お気に入りの検索
+    if params[:favorite] == "1"
+      favorite_song_ids = current_user.favorites.pluck(:song_id)
+      @songs = @songs.where(id: favorite_song_ids)
+    end
   end
 end
