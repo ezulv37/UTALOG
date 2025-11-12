@@ -119,7 +119,7 @@ YouTube 動画検索や採点結果の画像アップロード、自分用の評
 
 ## 8. ER図
 
-<img width="822" height="844" alt="カラオケ練習アプリER図" src="https://github.com/user-attachments/assets/f79b7c42-a3a8-4790-b894-cd93cc1991d8" />
+<img width="1096" height="736" alt="カラオケ練習アプリER図" src="https://github.com/user-attachments/assets/8d74ae6f-7f34-4867-af63-c19f2f4f8c0b" />
 
 
 ## 9. 今後の展望
