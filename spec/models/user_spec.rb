@@ -3,6 +3,7 @@ require 'rails_helper'
 RSpec.describe User, type: :model do
   let(:user) { build(:user) }
   let(:saved_user) { create(:user) }
+  let(:song) { create(:song) }
 
   describe 'userモデルのバリデーションに関するテスト' do
     it '名前、メールアドレス、パスワードがある場合は有効' do
@@ -62,6 +63,17 @@ RSpec.describe User, type: :model do
     it 'practiceモデルとのアソシエーションが正しく設定されていること' do
       practice = create(:practice, user: saved_user)
       expect(saved_user.practices).to include practice
+    end
+
+    it 'favoriteモデルとのアソシエーションが正しく設定されていること' do
+      favorite = create(:favorite, user: saved_user)
+      expect(saved_user.favorites).to include favorite
+    end
+
+    it '中間テーブルfavorite_songs（through: :favorites, source: :song）が正しく設定されていること' do
+      song = create(:song)
+      create(:favorite, user: saved_user, song: song)
+      expect(saved_user.favorite_songs).to include song
     end
   end
 end
