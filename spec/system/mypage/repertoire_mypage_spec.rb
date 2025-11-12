@@ -139,4 +139,22 @@ RSpec.describe 'マイページ（レパートリータブ）', type: :system, j
       end
     end
   end
+
+  describe 'お気に入り絞り込み機能' do
+    it '★チェックを入れて検索をクリックすると、お気に入り登録した楽曲のみ表示される' do
+      user.favorite(song_a)
+      visit mypage_path(tab: 'repertoire')
+
+      within '#repertoire' do
+        check '★'
+        click_on '検索'
+      end
+
+      within '.repertoire_grid' do
+        expect(page).to have_content(song_a.title)
+        expect(page).not_to have_content(song_b.title)
+        expect(page).not_to have_content(song_c.title)
+      end
+    end
+  end
 end
