@@ -4,6 +4,7 @@ RSpec.describe Song, type: :model do
   let(:song) { build(:song) }
   let(:user) { create(:user) }
   let(:saved_song) { create(:song, user: user) }
+  let(:favorite) { create(:favorite, user: user, song: saved_song) }
 
   describe 'songモデルのバリデーションに関するテスト' do
     it '楽曲タイトル、アーティスト名、ジャンルがある場合は有効' do
@@ -59,6 +60,10 @@ RSpec.describe Song, type: :model do
   describe 'songモデルのアソシエーションに関するテスト' do
     it 'userモデルとのアソシエーションが正しく設定されていること' do
       expect(user.songs).to include(saved_song)
+    end
+
+    it 'favoriteモデルとのアソシエーションが正しく設定されていること' do
+      expect(saved_song.favorites).to include favorite
     end
   end
 end
