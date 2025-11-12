@@ -76,4 +76,22 @@ RSpec.describe User, type: :model do
       expect(saved_user.favorite_songs).to include song
     end
   end
+
+  describe 'お気に入り機能のインスタンスメソッドに関するテスト' do
+    it 'favorite?メソッドでお気に入り登録済みかどうか判定できること' do
+      saved_user.favorite(song)
+      expect(saved_user.favorite?(song)).to be true
+    end
+
+    it 'favoriteメソッドでお気に入り登録ができること' do
+      expect { saved_user.favorite(song) }.to change { saved_user.favorite_songs.count }.by(1)
+      expect(saved_user.favorite_songs).to include song
+    end
+
+    it 'unfavoriteメソッドでお気に入りを解除できること' do
+      saved_user.favorite(song)
+      expect { saved_user.unfavorite(song) }.to change { saved_user.favorite_songs.count }.by(-1)
+      expect(saved_user.favorite?(song)).to be false
+    end
+  end
 end
