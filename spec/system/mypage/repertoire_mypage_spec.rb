@@ -104,4 +104,39 @@ RSpec.describe 'マイページ（レパートリータブ）', type: :system, j
       expect(page).to have_content(song_c.artist)
     end
   end
+
+  describe 'お気に入り登録・解除機能' do
+    it '☆をクリックすると★に変わってお気に入り登録できること' do
+      song_item = find('li.repertoire_item', text: song_a.title)
+
+      within song_item do
+        expect(page).to have_button('☆')
+        click_button '☆'
+      end
+
+      expect(page).to have_current_path("#{mypage_path}?tab=repertoire")
+
+      within song_item do
+        expect(page).to have_button('★')
+      end
+    end
+
+    it '★をクリックすると☆に戻ってお気に入り解除できること' do
+      user.favorite(song_a)
+      visit mypage_path(tab: 'repertoire')
+
+      song_item = find('li.repertoire_item', text: song_a.title)
+
+      within song_item do
+        expect(page).to have_button('★')
+        click_button '★'
+      end
+
+      expect(page).to have_current_path("#{mypage_path}?tab=repertoire")
+
+      within song_item do
+        expect(page).to have_button('☆')
+      end
+    end
+  end
 end
