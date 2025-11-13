@@ -5,7 +5,7 @@
 **カラオケ練習の記録や楽曲レパートリーを管理し、カラオケライフをサポートするアプリ**
 
 ## 2. サービス画像
-<img width="1454" height="579" alt="スクリーンショット 2025-09-30 22 12 17" src="https://github.com/user-attachments/assets/e024660b-07c4-40c0-bc8b-5fc120f0c415" />
+<img width="1456" height="626" alt="スクリーンショット 2025-11-13 15 33 27" src="https://github.com/user-attachments/assets/17fd7bdf-3756-41da-8795-6732790717f7" />
 
 <img width="1454" height="792" alt="スクリーンショット 2025-09-30 22 12 48" src="https://github.com/user-attachments/assets/6f3fd17b-ae0b-4dfa-bb9b-b904ad4012d6" />
 
@@ -25,7 +25,7 @@
 
 <img width="1451" height="792" alt="スクリーンショット 2025-09-30 22 37 08" src="https://github.com/user-attachments/assets/8bcb8b05-8824-46ef-b259-87983b8bee17" />
 
-<img width="1446" height="783" alt="スクリーンショット 2025-09-30 22 37 29" src="https://github.com/user-attachments/assets/a8bbfb71-9dba-4257-8fc5-7ea396b2e4d0" />
+<img width="1453" height="793" alt="スクリーンショット 2025-11-13 15 40 14" src="https://github.com/user-attachments/assets/a460ce1f-9046-41cc-8d7e-087e60b14a87" />
 
 <img width="1469" height="624" alt="スクリーンショット 2025-09-30 22 38 16" src="https://github.com/user-attachments/assets/6bf1643a-7c3e-49dd-9997-5f2ee6a9407b" />
 
